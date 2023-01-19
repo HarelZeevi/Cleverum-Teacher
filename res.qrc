@@ -5,11 +5,25 @@
     <file>imgs/3.png</file>
     <file>imgs/4.png</file>
     <file>imgs/5.png</file>
-    <file>imgs/11.png</file>
     <file>imgs/6.png</file>
     <file>imgs/7.png</file>
     <file>imgs/8.png</file>
     <file>imgs/9.png</file>
     <file>imgs/10.png</file>
+    <file>imgs/11.png</file>
+    <file>imgs/12.png</file>
+    <file>imgs/13.png</file>
+    <file>imgs/14.png</file>
+    <file>imgs/15.png</file>
+    <file>imgs/16.png</file>
+  </qresource>
+  <qresource prefix="bg">
+    <file>pexels-pixabay-38537.jpg</file>
+    <file>unnamed.png</file>
+    <file>rnoguier_java.jpg</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>icons/new.png</file>
+    <file>icons/search.png</file>
   </qresource>
 </RCC>

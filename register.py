@@ -313,6 +313,12 @@ class Ui_MainWindow(object):
 
         # submit button click event hooking 
         self.submit_btn.clicked.connect(self.submit_form)
+        
+
+
+    def switch_layout(self):
+        print("switch")
+    
 
     # this function will be called when the submit button is clicked 
     def submit_form(self):
@@ -331,7 +337,7 @@ class Ui_MainWindow(object):
         PARAMS = {
                 "email": self.email.text(),
                 "password": self.pswd.text(),
-                "confirmPassword": self.confirm_pswd.text(),
+                "confirmPassword": self.confirmPswd.text(),
                 "id": self.id.text(),
                 "userType": self.utype.currentText()[0], # only the first letteris needed: S / T 
                 "firstName": self.fname.text(),
