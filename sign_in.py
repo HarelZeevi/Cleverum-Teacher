@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'sign_in1.ui'
+# Form implementation generated from reading ui file 'sign_in.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Form(object):
-    
+
     # this function will be called when the submit button is clicked 
     def submit_form(self):
         print("hi")
@@ -34,8 +34,8 @@ class Ui_Form(object):
         URL = "http://localhost:8080/api/signIn"
         r = requests.post(url = URL, json=PARAMS)
         print(r.text)
-
-    
+   
+  
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1040, 681)
@@ -145,13 +145,6 @@ class Ui_Form(object):
         self.label_31 = QtWidgets.QLabel(Form)
         self.label_31.setGeometry(QtCore.QRect(-110, 260, 411, 401))
         self.label_31.setObjectName("label_31")
-        self.label_32 = QtWidgets.QLabel(Form)
-        self.label_32.setGeometry(QtCore.QRect(510, 470, 121, 21))
-        font = QtGui.QFont()
-        font.setPointSize(13)
-        self.label_32.setFont(font)
-        self.label_32.setStyleSheet("color: #7289da;")
-        self.label_32.setObjectName("label_32")
         self.frame_11 = QtWidgets.QFrame(Form)
         self.frame_11.setGeometry(QtCore.QRect(320, 210, 301, 251))
         self.frame_11.setStyleSheet("background-color: #23272A;\n"
@@ -222,7 +215,7 @@ class Ui_Form(object):
         self.submit_btn = QtWidgets.QPushButton(self.frame_11)
        
         # submit button click event hooking 
-        self.submit_btn.clicked.connect(lambda: self.submit_form()) 
+        self.submit_btn.clicked.connect(lambda: self.submit_form())
 
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
@@ -266,6 +259,17 @@ class Ui_Form(object):
         self.label_36.setFont(font)
         self.label_36.setStyleSheet("color: white;")
         self.label_36.setObjectName("label_36")
+        self.btn_switch_register = QtWidgets.QPushButton(Form)
+        self.btn_switch_register.setGeometry(QtCore.QRect(498, 463, 117, 33))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.btn_switch_register.setFont(font)
+        self.btn_switch_register.setStyleSheet("QPushButton{\n"
+"    color: #7289da;\n"
+"    background-color:#2C2F33;\n"
+"}")
+        self.btn_switch_register.setFlat(True)
+        self.btn_switch_register.setObjectName("btn_switch_register")
         self.label_35.raise_()
         self.label_10.raise_()
         self.label_15.raise_()
@@ -286,9 +290,9 @@ class Ui_Form(object):
         self.label_29.raise_()
         self.label_30.raise_()
         self.label_31.raise_()
-        self.label_32.raise_()
         self.frame_11.raise_()
         self.label_36.raise_()
+        self.btn_switch_register.raise_()
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -315,12 +319,34 @@ class Ui_Form(object):
         self.label_29.setText(_translate("Form", "<html><head/><body><p><img src=\":/illustrations/imgs/2.png\"/></p></body></html>"))
         self.label_30.setText(_translate("Form", "<html><head/><body><p><img src=\":/illustrations/imgs/6.png\"/></p></body></html>"))
         self.label_31.setText(_translate("Form", "<html><head/><body><p><img src=\":/illustrations/imgs/7.png\"/></p></body></html>"))
-        self.label_32.setText(_translate("Form", "Register  here"))
         self.label_33.setText(_translate("Form", "Password"))
         self.label_34.setText(_translate("Form", "ID"))
         self.submit_btn.setText(_translate("Form", "Login"))
         self.label_35.setText(_translate("Form", "Don\'t have an account? "))
         self.label_36.setText(_translate("Form", "Sign In"))
+        self.btn_switch_register.setText(_translate("Form", "Register here!"))
+
+
+
+class Login(Ui_Form): 
+    '''this classes adds the page switching funcitonality to the generated code'''
+    
+    def setupUi(self, Form, stackedWidget):
+        ''' this function gets the stacked widget and changes 
+        the shown page according to the events in the page '''
+        
+        super().setupUi(Form)
+        
+        # define stack widget as a class property that is accessible within the class 
+        self.stackedWidget = stackedWidget
+
+        # 'Register here'  button event that switches the login page to register page
+        self.btn_switch_register.clicked.connect(lambda: self.switch_to_register())
+
+
+    def switch_to_register(self):
+        ''' this function switches to register page from login page''' 
+        self.stackedWidget.setCurrentIndex(1)
 
 
 if __name__ == "__main__":

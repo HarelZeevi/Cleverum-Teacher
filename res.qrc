@@ -2,6 +2,7 @@
   <qresource prefix="illustrations">
     <file>imgs/1.png</file>
     <file>imgs/2.png</file>
+    <file>imgs/17.png</file>
     <file>imgs/3.png</file>
     <file>imgs/4.png</file>
     <file>imgs/5.png</file>
@@ -14,16 +15,20 @@
     <file>imgs/12.png</file>
     <file>imgs/13.png</file>
     <file>imgs/14.png</file>
+    <file>imgs/16.png</file>
+    <file>imgs/20.png</file>
+    <file>imgs/19.png</file>
+    <file>imgs/18.png</file>
     <file>imgs/15.png</file>
     <file>imgs/16.png</file>
-  </qresource>
-  <qresource prefix="bg">
-    <file>pexels-pixabay-38537.jpg</file>
-    <file>unnamed.png</file>
-    <file>rnoguier_java.jpg</file>
   </qresource>
   <qresource prefix="icons">
     <file>icons/new.png</file>
     <file>icons/search.png</file>
+    <file>icons/next3.png</file>
+    <file>icons/next2.png</file>
+    <file>icons/previous.png</file>
+    <file>icons/next4.png</file>
+    <file>icons/next4 (copy).png</file>
   </qresource>
 </RCC>

@@ -10,35 +10,42 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import resources
 from PyQt5 import QtCore, QtGui, QtWidgets
-from sign_in import Ui_Form as sign_in
 
-class sign_in_widget(sign_in):
-    def submit_form(self):
-        # addition regarding the stack widget replacement 
-        Ui_MainWindow.setCurrentIndex(2)
+# import pages
+from sign_in import Login 
+from register import Register
 
-        # regular request send 
-        return super().submit_form(self)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        self.page = QtWidgets.QWidget()
-        ui = sign_in()
-        ui.setupUi(self.page)
-        
         
         MainWindow.setObjectName("MainWindow")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         MainWindow.resize(1040, 681)
         self.centralwidget.setObjectName("centralwidget")
+        
+        # define the stack of widgets 
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(-1, -1, 1040, 681))
         self.stackedWidget.setObjectName("stackedWidget")
-        self.page.setObjectName("page")
-        self.stackedWidget.addWidget(self.page)
-        self.page_2 = QtWidgets.QWidget()
-        self.page_2.setObjectName("page_2")
-        self.stackedWidget.addWidget(self.page_2)
+       
+        ''' Here we define the imported pages and add them to the stack of widgets'''
+        
+        # login page 
+        self.login = QtWidgets.QWidget()
+        ui = Login()
+        ui.setupUi(self.login, self.stackedWidget)
+        self.login.setObjectName("login")
+        self.stackedWidget.addWidget(self.login)
+
+
+        # register page 
+        self.register = QtWidgets.QWidget()
+        ui = Register()
+        ui.setupUi(self.register, self.stackedWidget)
+        self.login.setObjectName("register")
+        self.stackedWidget.addWidget(self.register)
+        
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
