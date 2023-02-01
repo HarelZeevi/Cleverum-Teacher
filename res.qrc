@@ -5,8 +5,11 @@
     <file>imgs/17.png</file>
     <file>imgs/3.png</file>
     <file>imgs/4.png</file>
+    <file>imgs/23.png</file>
+    <file>imgs/26.png</file>
     <file>imgs/5.png</file>
     <file>imgs/6.png</file>
+    <file>imgs/23.png</file>
     <file>imgs/7.png</file>
     <file>imgs/8.png</file>
     <file>imgs/9.png</file>
@@ -18,8 +21,45 @@
     <file>imgs/16.png</file>
     <file>imgs/20.png</file>
     <file>imgs/19.png</file>
+    <file>imgs/21.png</file>
+    <file>imgs/23.png</file>
+    <file>imgs/22.png</file>
+    <file>imgs/21.png</file>
+    <file>imgs/20.png</file>
+    <file>imgs/1.png</file>
+    <file>imgs/2.png</file>
+    <file>imgs/3.png</file>
+    <file>imgs/4.png</file>
+    <file>imgs/5.png</file>
+    <file>imgs/6.png</file>
+    <file>imgs/7.png</file>
+    <file>imgs/8.png</file>
+    <file>imgs/9.png</file>
+    <file>imgs/10.png</file>
+    <file>imgs/11.png</file>
+    <file>imgs/12.png</file>
+    <file>imgs/13.png</file>
+    <file>imgs/14.png</file>
+    <file>imgs/15.png</file>
+    <file>imgs/16.png</file>
+    <file>imgs/17.png</file>
+    <file>imgs/18.png</file>
+    <file>imgs/19.png</file>
+    <file>imgs/20.png</file>
+    <file>imgs/21.png</file>
+    <file>imgs/22.png</file>
+    <file>imgs/29.png</file>
+    <file>imgs/23.png</file>
+    <file>imgs/24.png</file>
+    <file>imgs/25.png</file>
+    <file>imgs/25.png</file>
+    <file>imgs/26.png</file>
+    <file>imgs/27.png</file>
+    <file>imgs/28.png</file>
+    <file>imgs/22.png</file>
     <file>imgs/18.png</file>
     <file>imgs/15.png</file>
+    <file>imgs/29.png</file>
     <file>imgs/16.png</file>
   </qresource>
   <qresource prefix="icons">
@@ -27,7 +67,9 @@
     <file>icons/search.png</file>
     <file>icons/next3.png</file>
     <file>icons/next2.png</file>
+    <file>icons/docs.png</file>
     <file>icons/previous.png</file>
+    <file>icons/docs.png</file>
     <file>icons/next4.png</file>
     <file>icons/next4 (copy).png</file>
   </qresource>
