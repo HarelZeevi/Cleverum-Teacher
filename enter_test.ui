@@ -106,7 +106,7 @@
           </widget>
          </item>
          <item row="2" column="0">
-          <widget class="QLineEdit" name="id">
+          <widget class="QLineEdit" name="token">
            <property name="font">
             <font>
              <pointsize>14</pointsize>
@@ -132,7 +132,7 @@ QLineEdit:focus{
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QPushButton" name="submit_btn">
+     <widget class="QPushButton" name="continue_btn">
       <property name="font">
        <font>
         <family>DejaVu Sans</family>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1486</width>
-    <height>610</height>
+    <height>1432</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>80</y>
+     <x>570</x>
+     <y>140</y>
      <width>301</width>
      <height>51</height>
     </rect>
@@ -45,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>180</y>
+     <y>230</y>
      <width>1261</width>
      <height>271</height>
     </rect>
@@ -495,8 +495,8 @@ border: 0px;</string>
   <widget class="QPushButton" name="pushButton_13">
    <property name="geometry">
     <rect>
-     <x>1390</x>
-     <y>280</y>
+     <x>1400</x>
+     <y>330</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -543,7 +543,7 @@ QPushButton:hover{
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>280</y>
+     <y>330</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -608,10 +608,10 @@ QPushButton:hover{
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>460</y>
-     <width>221</width>
-     <height>59</height>
+     <x>590</x>
+     <y>510</y>
+     <width>251</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -625,7 +625,7 @@ QPushButton:hover{
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="submit_btn_2">
+     <widget class="QPushButton" name="stop_btn">
       <property name="font">
        <font>
         <family>DejaVu Sans</family>
@@ -658,7 +658,7 @@ QPushButton:hover{
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="submit_btn">
+     <widget class="QPushButton" name="flow_btn">
       <property name="font">
        <font>
         <family>DejaVu Sans</family>
@@ -691,6 +691,35 @@ QPushButton:hover{
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>361</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>FreeMono</family>
+     <pointsize>22</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: beige;
+border: 1px solid beige;
+padding: 6px;
+color: white;
+border-radius: 10px;</string>
+   </property>
+   <property name="text">
+    <string>Time Left: 01:40:00</string>
+   </property>
   </widget>
  </widget>
  <resources>

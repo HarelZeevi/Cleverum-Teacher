@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'sign_in.ui'
 #
@@ -15,7 +15,6 @@ class Ui_Form(object):
 
     # this function will be called when the submit button is clicked 
     def submit_form(self):
-        print("hi")
         self.submit_btn.setStyleSheet("QPushButton{\n"
                                         "    background-color: #EF9A53;\n"
                                         "    color: white;\n"

@@ -108,7 +108,7 @@ padding: 0px;</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="download_btn">
       <property name="font">
        <font>
         <pointsize>12</pointsize>

@@ -393,6 +393,27 @@
          <property name="bottomMargin">
           <number>5</number>
          </property>
+         <item row="2" column="0">
+          <widget class="QLineEdit" name="id">
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit{
+	color:white;
+}
+
+QLineEdit:focus{
+	border: 1px solid rgb(170, 255, 0)  ;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
          <item row="4" column="0">
           <widget class="QLineEdit" name="pswd">
            <property name="font">
@@ -427,27 +448,6 @@ QLineEdit:focus{
            </property>
            <property name="text">
             <string>Password</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLineEdit" name="id">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit{
-	color:white;
-}
-
-QLineEdit:focus{
-	border: 1px solid rgb(170, 255, 0)  ;
-}</string>
-           </property>
-           <property name="text">
-            <string/>
            </property>
           </widget>
          </item>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form impementation generated from reading ui file 'main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.register = QtWidgets.QWidget()
         ui = Register()
         ui.setupUi(self.register, self.stackedWidget)
-        self.login.setObjectName("register")
+        self.register.setObjectName("register")
         self.stackedWidget.addWidget(self.register)
         
         MainWindow.setCentralWidget(self.centralwidget)
