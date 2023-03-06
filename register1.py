@@ -12,6 +12,35 @@ import requests
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
+###
+
+class TestCard(Ui_Frame): 
+    '''this classes adds the page switching funcitonality to the generated code'''
+     
+    def __init__(self, test):
+        
+        # init the test
+        self.test = test
+        
+   
+    def setupUi(self, Form, stackedWidget):
+        ''' this function gets the stacked widget and changes 
+        the shown page according to the events in the page '''
+         
+        super().setupUi(Form)
+   
+
+        # init the test properties in the ui 
+        self.topic.setText(self.test["topic"])
+        self.subtopic.setText(self.test["subtopic"])
+        self.grade.setText(f"Grade: {self.test['grade']}")
+          
+        # define stack widget as a class property that is accessible within the class 
+        self.stackedWidget = stackedWidget
+
+
+###
+
 class Ui_Form(object):
 
     # this function will be called when the submit button is clicked 

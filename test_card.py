@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'test_card.ui'
 #
@@ -14,13 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Frame(object):
     def setupUi(self, Frame):
         Frame.setObjectName("Frame")
-        Frame.resize(276, 452)
+        Frame.resize(251, 428)
         Frame.setStyleSheet("QFrame{\n"
 "    background-color: #4b4b4b;\n"
 "    color: beige;\n"
 "}")
-        self.gridLayout = QtWidgets.QGridLayout(Frame)
-        self.gridLayout.setObjectName("gridLayout")
+        self.gridlayout = QtWidgets.QGridLayout(Frame)
+        self.gridlayout.setObjectName("gridlayout")
         self.test_card = QtWidgets.QFrame(Frame)
         self.test_card.setStyleSheet("QFrame{\n"
 "    background-color: #4b4b4b;\n"
@@ -42,7 +42,8 @@ class Ui_Frame(object):
         self.frame_12.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_12.setObjectName("frame_12")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_12)
-        self.horizontalLayout_4.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_4.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
+        self.horizontalLayout_4.setContentsMargins(0, 9, -1, 8)
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.topic = QtWidgets.QLabel(self.frame_12)
@@ -54,7 +55,7 @@ class Ui_Frame(object):
 "    border: 0px;\n"
 "}")
         self.topic.setObjectName("topic")
-        self.horizontalLayout_4.addWidget(self.topic, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_4.addWidget(self.topic)
         self.verticalLayout_5.addWidget(self.frame_12)
         self.frame_13 = QtWidgets.QFrame(self.test_card)
         self.frame_13.setStyleSheet("border:1px solid beige;\n"
@@ -78,25 +79,32 @@ class Ui_Frame(object):
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_7.addItem(spacerItem)
+        self.subtopic = QtWidgets.QLabel(self.frame_14)
+        font = QtGui.QFont()
+        font.setFamily("URW Bookman [UKWN]")
+        font.setPointSize(14)
+        self.subtopic.setFont(font)
+        self.subtopic.setStyleSheet("border:0px;\n"
+"color:white;")
+        self.subtopic.setObjectName("subtopic")
+        self.verticalLayout_7.addWidget(self.subtopic)
+        self.label = QtWidgets.QLabel(self.frame_14)
+        font = QtGui.QFont()
+        font.setFamily("URW Bookman [urw]")
+        font.setPointSize(14)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayout_7.addWidget(self.label)
         self.grade = QtWidgets.QLabel(self.frame_14)
         font = QtGui.QFont()
         font.setFamily("URW Bookman [UKWN]")
-        font.setPointSize(17)
+        font.setPointSize(14)
         self.grade.setFont(font)
         self.grade.setStyleSheet("border:0px;\n"
 "")
         self.grade.setObjectName("grade")
         self.verticalLayout_7.addWidget(self.grade)
         self.verticalLayout_6.addWidget(self.frame_14)
-        self.subtopic = QtWidgets.QLabel(self.frame_13)
-        font = QtGui.QFont()
-        font.setFamily("URW Bookman [UKWN]")
-        font.setPointSize(17)
-        self.subtopic.setFont(font)
-        self.subtopic.setStyleSheet("border:0px;\n"
-"color:white;")
-        self.subtopic.setObjectName("subtopic")
-        self.verticalLayout_6.addWidget(self.subtopic)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_6.addItem(spacerItem1)
         self.frame_15 = QtWidgets.QFrame(self.frame_13)
@@ -145,7 +153,6 @@ class Ui_Frame(object):
 "\n"
 "QPushButton:hover{\n"
 "        background-color: #FED049;\n"
-"        color: white;\n"
 "}")
         self.upload_btn.setObjectName("upload_btn")
         self.verticalLayout_8.addWidget(self.upload_btn)
@@ -177,7 +184,7 @@ class Ui_Frame(object):
         self.verticalLayout_8.addWidget(self.remove_btn)
         self.verticalLayout_6.addWidget(self.frame_15)
         self.verticalLayout_5.addWidget(self.frame_13)
-        self.gridLayout.addWidget(self.test_card, 0, 0, 1, 1)
+        self.gridlayout.addWidget(self.test_card, 0, 0, 1, 1)
 
         self.retranslateUi(Frame)
         QtCore.QMetaObject.connectSlotsByName(Frame)
@@ -186,8 +193,9 @@ class Ui_Frame(object):
         _translate = QtCore.QCoreApplication.translate
         Frame.setWindowTitle(_translate("Frame", "Frame"))
         self.topic.setText(_translate("Frame", "English"))
-        self.grade.setText(_translate("Frame", "Grade 11"))
-        self.subtopic.setText(_translate("Frame", "Present Simple"))
+        self.subtopic.setText(_translate("Frame", "Unseen Module G"))
+        self.label.setText(_translate("Frame", "Time Limit: 1:45"))
+        self.grade.setText(_translate("Frame", "Grade: 11"))
         self.start_btn.setText(_translate("Frame", "Start"))
         self.upload_btn.setText(_translate("Frame", "Upload"))
         self.remove_btn.setText(_translate("Frame", "Remove"))
@@ -196,12 +204,24 @@ class Ui_Frame(object):
 class TestCard(Ui_Frame): 
     '''this classes adds the page switching funcitonality to the generated code'''
      
+    def __init__(self, test):
+        
+        # init the test
+        self.test = test
+        
+   
     def setupUi(self, Form, stackedWidget):
         ''' this function gets the stacked widget and changes 
         the shown page according to the events in the page '''
          
         super().setupUi(Form)
-         
+   
+
+        # init the test properties in the ui 
+        self.topic.setText(self.test["topic"])
+        self.subtopic.setText(self.test["subtopic"])
+        self.grade.setText(f"Grade: {self.test['grade']}")
+          
         # define stack widget as a class property that is accessible within the class 
         self.stackedWidget = stackedWidget
 

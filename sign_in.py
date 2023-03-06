@@ -1,4 +1,4 @@
- -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'sign_in.ui'
 #
@@ -10,31 +10,12 @@
 import requests
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+# for JWT storage 
+import keyring
+import json
 
-class Ui_Form(object):
 
-    # this function will be called when the submit button is clicked 
-    def submit_form(self):
-        self.submit_btn.setStyleSheet("QPushButton{\n"
-                                        "    background-color: #EF9A53;\n"
-                                        "    color: white;\n"
-                                        "    border-style: outset;\n"
-                                        "    border-width: 2px;\n"
-                                        "    border-radius: 10px;\n"
-                                        "    border-color: beige;\n"
-                                        "    padding: 6px;\n"
-                                        "}\n"
-                                        "\n")
-        
-        PARAMS = {
-                "password": self.pswd.text(),
-                "id": self.id.text()      
-        }
-        URL = "http://localhost:8080/api/signIn"
-        r = requests.post(url = URL, json=PARAMS)
-        print(r.text)
-   
-  
+class Ui_Form(object): 
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1040, 681)
@@ -343,6 +324,45 @@ class Login(Ui_Form):
         self.btn_switch_register.clicked.connect(lambda: self.switch_to_register())
 
 
+    
+    # this function will be called when the submit button is clicked 
+    def submit_form(self):
+        self.submit_btn.setStyleSheet("QPushButton{\n"
+                                        "    background-color: #EF9A53;\n"
+                                        "    color: white;\n"
+                                        "    border-style: outset;\n"
+                                        "    border-width: 2px;\n"
+                                        "    border-radius: 10px;\n"
+                                        "    border-color: beige;\n"
+                                        "    padding: 6px;\n"
+                                        "}\n"
+                                        "\n")
+
+        # define the parameters of the http request
+        PARAMS = {
+                "password": self.pswd.text(),
+                "id": self.id.text()      
+        }
+        URL = "http://localhost:8080/api/signIn"
+        r = requests.post(url = URL, json=PARAMS)
+        
+        
+        # Define the service name and account name to use for the JWT
+        service_name = "myapp"
+        account_name = "jwt"
+
+        print(r.text)
+
+        # Define the JWT value to store in the keyring
+        response_json = json.loads(r.text)
+        
+        jwt_value = resultJson["accessToken"]
+
+        # Store the JWT in the keyring
+        keyring.set_password(service_name, account_name, jwt_value)
+
+
+    
     def switch_to_register(self):
         ''' this function switches to register page from login page''' 
         self.stackedWidget.setCurrentIndex(1)

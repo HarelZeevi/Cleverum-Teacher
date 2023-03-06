@@ -16,43 +16,21 @@ from add_test_card import AddTestCard
 from create_test_card import CreateTestCard
 from test_card import TestCard
 
+# for jwt retreiving 
+import keyring 
 
-class Ui_Form(object): 
-    
-    def init_frames(self, stack):
-        '''This function intialize the frames of a given QStackedWidget Object in my_tests'''
-        
-        # add test frame stack
-        self.add_test = QtWidgets.QFrame()
-        ui = AddTestCard()
-        ui.setupUi(self.add_test, stack)
-        self.add_test.setObjectName("add_test")
-        stack.addWidget(self.add_test)
-       
-        # create test card stack 
-        self.create_test = QtWidgets.QFrame()
-        ui = CreateTestCard()
-        ui.setupUi(self.create_test, stack)
-        self.add_test.setObjectName("add_test")
-        stack.addWidget(self.create_test)
-  
- 
-        # test card stack
-        self.test = QtWidgets.QFrame()
-        ui = TestCard()
-        ui.setupUi(self.test, stack)
-        self.test.setObjectName("test")
-        stack.addWidget(self.test)
- 
+# for http requests
+import requests
+import json
 
-   
 
+class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(1281, 717)
+        Form.resize(1374, 824)
         Form.setStyleSheet("background-color:#2C2F33;")
         self.container = QtWidgets.QFrame(Form)
-        self.container.setGeometry(QtCore.QRect(140, 190, 991, 444))
+        self.container.setGeometry(QtCore.QRect(170, 260, 1061, 444))
         self.container.setStyleSheet("QFrame{\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -121,7 +99,7 @@ class Ui_Form(object):
         self.page_4.setObjectName("page_4")
         self.horizontalLayout_3.addWidget(self.stack4)
         self.label_11 = QtWidgets.QLabel(Form)
-        self.label_11.setGeometry(QtCore.QRect(520, 110, 191, 51))
+        self.label_11.setGeometry(QtCore.QRect(580, 170, 191, 51))
         font = QtGui.QFont()
         font.setFamily("Sitka Text")
         font.setPointSize(26)
@@ -132,7 +110,7 @@ class Ui_Form(object):
         self.label_11.setStyleSheet("color: white;")
         self.label_11.setObjectName("label_11")
         self.previous_btn = QtWidgets.QPushButton(Form)
-        self.previous_btn.setGeometry(QtCore.QRect(20, 330, 71, 71))
+        self.previous_btn.setGeometry(QtCore.QRect(60, 420, 71, 71))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -161,7 +139,7 @@ class Ui_Form(object):
         self.previous_btn.setIconSize(QtCore.QSize(55, 55))
         self.previous_btn.setObjectName("previous_btn")
         self.next_btn = QtWidgets.QPushButton(Form)
-        self.next_btn.setGeometry(QtCore.QRect(1170, 350, 71, 71))
+        self.next_btn.setGeometry(QtCore.QRect(1270, 410, 71, 71))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.next_btn.setFont(font)
@@ -185,7 +163,7 @@ class Ui_Form(object):
         self.next_btn.setIconSize(QtCore.QSize(55, 55))
         self.next_btn.setObjectName("next_btn")
         self.new_page_btn = QtWidgets.QPushButton(Form)
-        self.new_page_btn.setGeometry(QtCore.QRect(550, 670, 141, 41))
+        self.new_page_btn.setGeometry(QtCore.QRect(590, 740, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setBold(False)
@@ -208,23 +186,15 @@ class Ui_Form(object):
 "}")
         self.new_page_btn.setObjectName("new_page_btn")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(-140, -160, 391, 331))
+        self.label.setGeometry(QtCore.QRect(-100, -140, 391, 331))
         self.label.setObjectName("label")
         self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(830, -190, 361, 361))
+        self.label_3.setGeometry(QtCore.QRect(920, -160, 361, 361))
         self.label_3.setObjectName("label_3")
 
         self.retranslateUi(Form)
         self.stack1.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Form)
-
-
-        # init the 4 stackWidgets with frames 
-        self.init_frames(self.stack1)
-        self.init_frames(self.stack2)
-        self.init_frames(self.stack3)
-        self.init_frames(self.stack4)
-
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -235,6 +205,171 @@ class Ui_Form(object):
         self.label_3.setText(_translate("Form", "<html><head/><body><p><img src=\":/illustrations/imgs/18.png\"/></p></body></html>"))
 
 
+class MyTests(Ui_Form): 
+    '''this classes adds the page switching funcitonality to the generated code'''
+
+    def __init__(self): 
+        # init list of tests 
+        self.tests = []
+        
+
+    def setupUi(self, Form, stackedWidget):
+        ''' this function gets the stacked widget and changes 
+        the shown page according to the events in the page '''
+        
+        self.get_tests()
+
+        super().setupUi(Form)
+       
+        
+        '''
+        # init the 4 stackWidgets with frames 
+        self.init_empty_frames(self.stack1)
+        self.init_empty_frames(self.stack2)
+        self.init_empty_frames(self.stack3)
+        self.init_empty_frames(self.stack4)
+        '''
+
+        # define stack widget as a class property that is accessible within the class 
+        self.stackedWidget = stackedWidget
+
+        # init list of 4 stacks 
+        self.stacks = [self.stack1, self.stack2, self.stack3, self.stack4]
+
+        # dill frames in the first page 
+        self.fill_frames(0)
+
+
+    def init_empty_frames(self, stack):
+        '''This function intialize the frames of a given QStackedWidget Object in my_tests'''
+        
+        # add test frame stack
+        self.add_test = QtWidgets.QFrame()
+        ui = AddTestCard()
+        ui.setupUi(self.add_test, stack)
+        self.add_test.setObjectName("add_test")
+        stack.addWidget(self.add_test)
+       
+        # create test card stack 
+        self.create_test = QtWidgets.QFrame()
+        ui = CreateTestCard()
+        ui.setupUi(self.create_test, stack)
+        self.add_test.setObjectName("add_test")
+        stack.addWidget(self.create_test)
+  
+ 
+        # test card stack
+        self.test = QtWidgets.QFrame()
+        ui = TestCard()
+        ui.setupUi(self.test, stack)
+        self.test.setObjectName("test")
+        stack.addWidget(self.test)
+ 
+
+
+    # this function will be called before the page is rendered with the tests 
+    def get_tests(self):
+        ''' this function gets the tests that were created by the user'''
+        
+        
+        # Define the service name and account name to use for the JWT
+        service_name = "myapp"
+        account_name = "jwt"
+
+        # Retrieve the JWT from the keyring
+        jwt_value = keyring.get_password(service_name, account_name)
+
+        # add the jwt_value to the headers
+        HEADERS = {"Authorization": f"Bearer {jwt_value}"}
+            
+        URL = "http://localhost:8080/api/teacher/getTests"
+        r = requests.get(URL, headers=HEADERS)
+        
+        # occupy the list of tests 
+        self.tests = json.loads(r.text)    
+        
+        print(self.tests)
+    
+
+
+    def clear_stacks(self):
+        '''this function clears a given qstackedwidget
+            object from all of it's widgets'''
+
+        # looping through the list of 4 stacks  
+        for stack in self.stacks:
+            
+            # looping through widgets in qstackedwidget
+            for i in range(stack.count()):
+                
+                # remove each widget
+                current = stack.widget(i)
+                stack.removeWidget(current)
+
+
+
+    def fill_frames(self, page_num):
+        '''this function gets a pge number and puts the tests
+            in it according to the list of tests'''
+        
+        # first clear the previous widgets in the stacks
+        self.clear_stacks()
+
+        # there's enough room for all 4 tests        
+        if len(self.tests) - page_num * 4  >= 4:
+ 
+            for i in range(page_num * 4, page_num * 4 + 4): 
+                
+                # current stack 
+                stack = self.stacks[i % 4]
+
+                # curernt test
+                test = self.tests[i]
+
+
+                # test card stack
+                self.test = QtWidgets.QFrame()
+                ui = TestCard(test)
+                ui.setupUi(self.test, stack)
+                self.test.setObjectName("test")
+                stack.addWidget(self.test)
+        
+        # there's room for less than 4 tests
+        else:
+            
+            # the number 0of remaining tests to fill
+            remains_num = self.tests - page_num * 4
+            
+            for i in range(remains_num):
+
+                # current stack 
+                stack = self.stacks[i % 4]
+
+                # curernt test
+                test = self.tests[i]
+
+                # test card stack
+                self.test = QtWidgets.QFrame()
+                ui = TestCard(test)
+                ui.setupUi(self.test, stack)
+                self.test.setObjectName("test")
+                stack.addWidget(self.test)
+
+            # the number of remaining empty slots
+            for i in range(4 - remains_num):
+               
+                # current stack 
+                stack = self.stacks[i % 4]
+                
+
+                init_empty_frames(stack)
+    
+
+
+    def switch_to_waiting_room():
+        '''this function starts the waiting room page'''
+        pass 
+
 
 
 
@@ -242,7 +377,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
+    ui = MyTests()
+    ui.setupUi(Form, None)
     Form.show()
     sys.exit(app.exec_())

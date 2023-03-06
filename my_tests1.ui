@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1281</width>
-    <height>717</height>
+    <width>1374</width>
+    <height>824</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,9 +19,9 @@
   <widget class="QFrame" name="container">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>190</y>
-     <width>991</width>
+     <x>170</x>
+     <y>260</y>
+     <width>1061</width>
      <height>444</height>
     </rect>
    </property>
@@ -148,8 +148,8 @@ QStackedWidget{
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>110</y>
+     <x>580</x>
+     <y>170</y>
      <width>191</width>
      <height>51</height>
     </rect>
@@ -173,8 +173,8 @@ QStackedWidget{
   <widget class="QPushButton" name="previous_btn">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>330</y>
+     <x>60</x>
+     <y>420</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -226,8 +226,8 @@ QPushButton:hover{
   <widget class="QPushButton" name="next_btn">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>350</y>
+     <x>1270</x>
+     <y>410</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -273,8 +273,8 @@ QPushButton:hover{
   <widget class="QPushButton" name="new_page_btn">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>670</y>
+     <x>590</x>
+     <y>740</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -310,8 +310,8 @@ QPushButton:hover{
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-140</x>
-     <y>-160</y>
+     <x>-100</x>
+     <y>-140</y>
      <width>391</width>
      <height>331</height>
     </rect>
@@ -323,8 +323,8 @@ QPushButton:hover{
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>-190</y>
+     <x>920</x>
+     <y>-160</y>
      <width>361</width>
      <height>361</height>
     </rect>

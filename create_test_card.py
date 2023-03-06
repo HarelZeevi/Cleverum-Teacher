@@ -9,7 +9,7 @@
 
 import requests
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import keyring
 
 class Ui_Frame(object):
 
@@ -249,7 +249,7 @@ class CreateTestCard(Ui_Frame):
         # 'Undo' button event that goes back to 'add test' card
         self.undo_btn.clicked.connect(lambda: self.undo()) 
  
- 
+
     # this function will be called when the save button is clicked 
     def save_test(self):
         ''' this function switches to 'test_card' frame from 'create_test_card' frame
@@ -257,7 +257,7 @@ class CreateTestCard(Ui_Frame):
         
         self.stackedWidget.setCurrentIndex(2) 
       
-
+        # define the http request parameters 
         PARAMS = {
                 "timeLimit": str(self.timeLimit.time().toPyTime()),
                 "topic": self.topic.text(),
@@ -265,11 +265,22 @@ class CreateTestCard(Ui_Frame):
                 "grade": self.grade.text()
         }
         
-        print(PARAMS)
+        
+        # Define the service name and account name to use for the JWT
+        service_name = "myapp"
+        account_name = "jwt"
+
+        # Retrieve the JWT from the keyring
+        jwt_value = keyring.get_password(service_name, account_name)
+
+        # add the jwt_value to the headers
+        HEADERS = {"Authorization": f"Bearer {jwt_value}"}
             
         URL = "http://localhost:8080/api/teacher/createTest"
-        r = requests.post(url = URL, json=PARAMS)
-        print(r.text)
+        r = requests.post(URL, headers=HEADERS, json=PARAMS)
+        
+        if r.ok:
+            print("Done successfully!")
 
     
     # this function will be called when the undo button is clicked

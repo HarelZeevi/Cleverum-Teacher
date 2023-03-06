@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>251</width>
-    <height>411</height>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,7 +78,7 @@ padding: 4px;</string>
          <property name="bottomMargin">
           <number>8</number>
          </property>
-         <item alignment="Qt::AlignHCenter">
+         <item>
           <widget class="QLabel" name="topic">
            <property name="font">
             <font>
@@ -156,11 +156,41 @@ border: 0px solid beige;</string>
              </spacer>
             </item>
             <item>
+             <widget class="QLabel" name="subtopic">
+              <property name="font">
+               <font>
+                <family>URW Bookman [UKWN]</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border:0px;
+color:white;</string>
+              </property>
+              <property name="text">
+               <string>Unseen Module G</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <family>URW Bookman [urw]</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Time Limit: 1:45</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QLabel" name="grade">
               <property name="font">
                <font>
                 <family>URW Bookman [UKWN]</family>
-                <pointsize>17</pointsize>
+                <pointsize>14</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -168,28 +198,11 @@ border: 0px solid beige;</string>
 </string>
               </property>
               <property name="text">
-               <string>Grade 11</string>
+               <string>Grade: 11</string>
               </property>
              </widget>
             </item>
            </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="subtopic">
-           <property name="font">
-            <font>
-             <family>URW Bookman [UKWN]</family>
-             <pointsize>17</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">border:0px;
-color:white;</string>
-           </property>
-           <property name="text">
-            <string>Present Simple</string>
-           </property>
           </widget>
          </item>
          <item>
