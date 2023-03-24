@@ -573,6 +573,10 @@ QPushButton:hover{
     <string notr="true">QPushButton{
 	color: #7289da;
 	background-color:#2C2F33;
+}
+
+QPushButton:hover{
+	text-decoration: underline;
 }</string>
    </property>
    <property name="text">
@@ -607,7 +611,7 @@ QPushButton:hover{
   <zorder>btn_switch_register</zorder>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections/>
 </ui>

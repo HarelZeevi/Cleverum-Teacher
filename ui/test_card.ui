@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>Frame</class>
  <widget class="QFrame" name="Frame">
+  <property name="enabled">
+   <bool>false</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>251</width>
-    <height>428</height>
+    <width>246</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +25,9 @@
   <layout class="QGridLayout">
    <item row="0" column="0">
     <widget class="QFrame" name="test_card">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="styleSheet">
       <string notr="true">QFrame{
 	background-color: #4b4b4b;
@@ -101,6 +107,9 @@ padding: 4px;</string>
       </item>
       <item>
        <widget class="QFrame" name="frame_13">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="styleSheet">
          <string notr="true">border:1px solid beige;
 background-color: #453C67;
@@ -202,6 +211,80 @@ color:white;</string>
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QFrame" name="frame">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="download_btn">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                   <underline>false</underline>
+                   <strikeout>false</strikeout>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+	color: #7289da;
+}
+
+QPushButton:hover{
+	color: white;
+	text-decoration: underline;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>test.doc</string>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../icons/download.png</normaloff>../icons/download.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
@@ -220,6 +303,12 @@ color:white;</string>
          </item>
          <item>
           <widget class="QFrame" name="frame_15">
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">
 border: 0px solid beige;</string>
@@ -245,6 +334,9 @@ border: 0px solid beige;</string>
             </property>
             <item>
              <widget class="QPushButton" name="start_btn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -252,8 +344,8 @@ border: 0px solid beige;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton{
-	color: black;
-	background-color: #afafaf;
+	color: white;
+	background-color: #282A3A;
 	border-style: outset;
 	border-width: 2px;
 	border-radius: 10px;
@@ -274,6 +366,9 @@ QPushButton:hover{
             </item>
             <item>
              <widget class="QPushButton" name="upload_btn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -281,8 +376,8 @@ QPushButton:hover{
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton{
-	color: black;
-	background-color: #777777;
+	color: white;
+	background-color: #735F32;
 	border-style: outset;
 	border-width: 2px;
 	border-radius: 10px;
@@ -301,6 +396,9 @@ QPushButton:hover{
             </item>
             <item>
              <widget class="QPushButton" name="remove_btn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -319,7 +417,7 @@ QPushButton:hover{
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton{
-	background-color: #ff4b4b;
+	background-color: #f80000;
 	color: black;
 	border-style: outset;
 	border-width: 2px;
@@ -331,7 +429,14 @@ QPushButton:hover{
 QPushButton:hover{
 		background-color: black;
 		color: white;
-}</string>
+}
+
+QPushButton:disabled {
+	border: 2px solid #f87c7c;
+	background-color:#f83e3e;
+	color: #f87c7c;
+}
+</string>
               </property>
               <property name="text">
                <string>Remove</string>

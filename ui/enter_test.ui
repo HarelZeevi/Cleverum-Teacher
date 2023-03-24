@@ -212,7 +212,7 @@ QPushButton:hover{
   <zorder>label_3</zorder>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections/>
 </ui>

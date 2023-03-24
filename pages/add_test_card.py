@@ -93,7 +93,7 @@ class AddTestCard(Ui_Frame):
         # define stack widget as a class property that is accessible within the class 
         self.stackedWidget = stackedWidget
 
-        # 'Register here'  button event that switches the login page to register page
+        # 'Register here' button event that switches the login page to register page
         self.add_btn.clicked.connect(lambda: self.switch_to_create())
 
 

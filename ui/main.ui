@@ -29,7 +29,11 @@
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border: 0px;</string>
+    </property>
     <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page_3"/>
     <widget class="QWidget" name="page_2"/>
    </widget>
   </widget>

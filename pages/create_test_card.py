@@ -10,9 +10,11 @@
 import requests
 from PyQt5 import QtCore, QtGui, QtWidgets
 import keyring
+import json
+from test_card import TestCard
+
 
 class Ui_Frame(object):
-
  
     def setupUi(self, test_card):
         test_card.setObjectName("test_card")
@@ -234,7 +236,7 @@ class Ui_Frame(object):
 class CreateTestCard(Ui_Frame): 
     '''this classes adds the page switching funcitonality to the generated code'''
      
-    def setupUi(self, Form, stackedWidget):
+    def setupUi(self, Form, stackedWidget, tests):
         ''' this function gets the stacked widget and changes 
         the shown page according to the events in the page '''
          
@@ -248,9 +250,46 @@ class CreateTestCard(Ui_Frame):
  
         # 'Undo' button event that goes back to 'add test' card
         self.undo_btn.clicked.connect(lambda: self.undo()) 
- 
+        
+        # the tests list that will be updated when a new test is created
+        self.tests = tests
 
-    # this function will be called when the save button is clicked 
+
+
+    def clear_stack(self):
+        '''this function clears the current qstackedwidget
+            object from all of it's widgets'''
+
+
+        # looping through widgets in qstackedwidget
+        for i in range(self.stackedWidget.count() - 1, -1, -1):
+            
+            # remove each widget
+            current = self.stackedWidget.widget(i)
+            self.stackedWidget.removeWidget(current)
+
+    # this function will be called before the page is rendered with the tests 
+    def get_tests(self):
+        ''' this function gets the tests that were created by the user'''
+        
+        
+        # define the service name and account name to use for the jwt
+        service_name = "myapp"
+        account_name = "jwt"
+
+        # retrieve the jwt from the keyring
+        jwt_value = keyring.get_password(service_name, account_name)
+
+        # add the jwt_value to the headers
+        headers = {"authorization": f"bearer {jwt_value}"}
+            
+        url = "http://localhost:8080/api/teacher/getTests"
+        r = requests.get(url, headers=headers)
+        
+        # update the list of tests globally with the the test that was just added 
+        self.tests.append(json.loads(r.text)[-1])
+    
+    # this function will be called when the 'save' button is clicked 
     def save_test(self):
         ''' this function switches to 'test_card' frame from 'create_test_card' frame
             and saves the created test to the database '''
@@ -265,7 +304,7 @@ class CreateTestCard(Ui_Frame):
                 "grade": self.grade.text()
         }
         
-        
+        print(PARAMS) 
         # Define the service name and account name to use for the JWT
         service_name = "myapp"
         account_name = "jwt"
@@ -278,11 +317,27 @@ class CreateTestCard(Ui_Frame):
             
         URL = "http://localhost:8080/api/teacher/createTest"
         r = requests.post(URL, headers=HEADERS, json=PARAMS)
+       
+ 
+        # clear stack 
+        self.clear_stack()
         
+        # refresh the list of test after the new test was added
+        self.get_tests()
+
+
+        # test card stack
+        self.test = QtWidgets.QFrame()
+        ui = TestCard(self.tests, len(self.tests) - 1)
+        ui.setupUi(self.test, self.stackedWidget)
+        self.test.setObjectName("test")
+        self.stackedWidget.addWidget(self.test)
+       
         if r.ok:
             print("Done successfully!")
 
-    
+
+
     # this function will be called when the undo button is clicked
     def undo(self):
         ''' This function goes back to 'add test' card without saving the changes '''

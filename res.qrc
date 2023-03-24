@@ -63,13 +63,20 @@
     <file>imgs/16.png</file>
   </qresource>
   <qresource prefix="icons">
-    <file>icons/new.png</file>
     <file>icons/search.png</file>
-    <file>icons/next3.png</file>
     <file>icons/next2.png</file>
     <file>icons/docs.png</file>
     <file>icons/previous.png</file>
     <file>icons/docs.png</file>
+    <file>icons/apps.png</file>
+    <file>icons/docs.png</file>
+    <file>icons/download.png</file>
+    <file>icons/next.png</file>
+    <file>icons/next2.png</file>
+    <file>icons/next4 (copy).png</file>
+    <file>icons/next4.png</file>
+    <file>icons/previous.png</file>
+    <file>icons/search.png</file>
     <file>icons/next4.png</file>
     <file>icons/next4 (copy).png</file>
   </qresource>
