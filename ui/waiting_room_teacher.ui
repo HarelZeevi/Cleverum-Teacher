@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>1712</width>
-    <height>703</height>
+    <height>684</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1712</width>
+    <height>684</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1712</width>
+    <height>684</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -47,101 +59,1311 @@
      <string>Waiting Room </string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QPushButton" name="submit_btn">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>150</y>
-      <width>291</width>
-      <height>51</height>
+      <x>650</x>
+      <y>560</y>
+      <width>121</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>DejaVu Sans</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	color: white;
+	background-color: #282A3A;
+	border-style: outset;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: beige;
+	padding: 6px;
+
+}
+
+QPushButton:hover{
+		background-color: #7289DA;
+		color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>start</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>210</y>
+      <width>1451</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tlwg Typewriter</family>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QFrame{
-	border:0px;
 	border-style: outset;
 	border-width: 2px;
-	border-radius: 1px;
+	border-radius: 0px;
+	border-color: black;
+	padding: 10px;	
 	background-color: #035397;
-	botder: 1px solid white;
-}
-
-</string>
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Raised</enum>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="label_32">
-       <property name="font">
-        <font>
-         <family>Sawasdee</family>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <strikeout>false</strikeout>
-         <stylestrategy>PreferDefault</stylestrategy>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: white;
-border: 0px;</string>
-       </property>
-       <property name="text">
-        <string>Find: </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="6" column="3">
+      <widget class="QLabel" name="slot12">
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
-         <height>26</height>
+         <width>300</width>
+         <height>40</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <family>Sawasdee</family>
-         <pointsize>16</pointsize>
+         <pointsize>12</pointsize>
          <weight>75</weight>
+         <italic>false</italic>
          <bold>true</bold>
+         <underline>false</underline>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QLineEdit{
-	background-color:#F0DBDB;
-	color:#FFAA4C;
-	border: 1px solid black;
-	padding: 3px;
-}
-
-QLineEdit:focus{
-	border: 1px solid #FFAA4C;;
-}</string>
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Lior Shmurak</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="slot3">
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Harel Zeevi</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="slot2">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Leonard Patterson</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="4">
+      <widget class="QLabel" name="slot37">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Netanel Kerner</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLabel" name="slot13">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Phillip Dorsey</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="4">
+      <widget class="QLabel" name="slot29">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Aleeza Hall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="3">
+      <widget class="QLabel" name="slot28">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Ava-Rose Farmer</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="5">
+      <widget class="QLabel" name="slot14">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Raja Townsend</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="slot4">
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Roey Bahat Petel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLabel" name="slot11">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Ori Dekel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="2">
+      <widget class="QLabel" name="slot19">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Khalil Hickman</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="7">
+      <widget class="QLabel" name="slot32">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Lior Shmurak</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="2">
+      <widget class="QLabel" name="slot35">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Olivia Sanders</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="4">
+      <widget class="QLabel" name="slot21">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Yusra Mills</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="2">
+      <widget class="QLabel" name="slot27">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Alicia Lee</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="1">
+      <widget class="QLabel" name="slot34">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Tilly Snyder</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="6">
+      <widget class="QLabel" name="slot39">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Aron Simmons</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="slot6">
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Matanya kalfa</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="3">
+      <widget class="QLabel" name="slot36">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Lily-May Russell</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="slot7">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Samir Clark</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="3">
+      <widget class="QLabel" name="slot20">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Sienna Logan</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="7">
+      <widget class="QLabel" name="slot16">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Flora Cain</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="6">
+      <widget class="QLabel" name="slot15">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Carlos Avila</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7">
+      <widget class="QLabel" name="slot8">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Gabriel Ratzon
+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QLabel" name="slot17">
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Yonatan Shayovitz</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="5">
+      <widget class="QLabel" name="slot30">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Kayleigh House</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="7">
+      <widget class="QLabel" name="slot40">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Sydney Brennan</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="7">
+      <widget class="QLabel" name="slot24">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Lior Shmurak</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="1">
+      <widget class="QLabel" name="slot26">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Bridie Mccullough</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="slot1">
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Michael Blumberg
+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="0">
+      <widget class="QLabel" name="slot25">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Mikey Christensen</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="0">
+      <widget class="QLabel" name="slot33">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Eleni Gaines</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="6">
+      <widget class="QLabel" name="slot31">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Dennis Harvey</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="slot9">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Dawud Villanueva</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="slot10">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Binyamin  Rosenblum
+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <widget class="QLabel" name="slot18">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Alexandria Zimmerman</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="6">
+      <widget class="QLabel" name="slot23">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Ivan Morales</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="slot5">
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Yehuda Polna</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="5">
+      <widget class="QLabel" name="slot22">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Gracie Ross</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="5">
+      <widget class="QLabel" name="slot38">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;
+background-color:#FFAA4C;</string>
+       </property>
+       <property name="text">
+        <string>Ziv Barahani</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="submit_btn">
+   <widget class="QPushButton" name="next_btn">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>1620</x>
+      <y>320</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #035397;
+	border-style: outset;
+	border-width: 2px;
+	border-radius:5px;
+	border-color: beige;
+	padding: 0px;
+}
+QPushButton:hover{
+	background-color: #7289DA;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../res.qrc">
+      <normaloff>:/icons/icons/next.png</normaloff>:/icons/icons/next.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>170</width>
+      <height>170</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="previous_btn">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>310</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>SizeHorCursor</cursorShape>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #035397;
+	border-style: outset;
+	border-width: 2px;
+	border-radius:5px;
+	border-color: beige;
+	padding: 0px;
+}
+QPushButton:hover{
+	background-color: #7289DA;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../res.qrc">
+      <normaloff>:/icons/icons/previous.png</normaloff>:/icons/icons/previous.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>170</width>
+      <height>170</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="remove_btn">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
       <y>560</y>
-      <width>121</width>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>DejaVu Sans</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #f80000;
+	color: black;
+	border-style: outset;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: beige;
+	padding: 6px;
+}
+
+QPushButton:hover{
+		background-color: black;
+		color: white;
+}
+
+QPushButton:disabled {
+	border: 2px solid #f87c7c;
+	background-color:#f83e3e;
+	color: #f87c7c;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>kick</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_38">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>281</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>FreeMono</family>
+      <pointsize>22</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: beige;
+border: 1px solid beige;
+padding: 6px;
+color: white;
+border-radius: 10px;</string>
+    </property>
+    <property name="text">
+     <string>Token: aBdk3hy</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="remove_btn_2">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>560</y>
+      <width>101</width>
       <height>41</height>
      </rect>
     </property>
@@ -172,1090 +1394,8 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>start</string>
+     <string>save</string>
     </property>
-   </widget>
-   <widget class="QFrame" name="frame_5">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>220</y>
-      <width>1451</width>
-      <height>311</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tlwg Typewriter</family>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QFrame{
-	border-style: outset;
-	border-width: 2px;
-	border-radius: 0px;
-	border-color: black;
-	padding: 10px;	
-	background-color: #035397;
-}</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="19" column="2">
-      <widget class="QLabel" name="label_36">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Alicia Lee</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="4">
-      <widget class="QLabel" name="label_2">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Netanel Kerner</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_23">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Leonard Patterson</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="3">
-      <widget class="QLabel" name="label_11">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Lior Shmurak</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="6">
-      <widget class="QLabel" name="label_29">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Samir Clark</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Michael Blumberg
-</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="3">
-      <widget class="QLabel" name="label">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Lily-May Russell</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="6">
-      <widget class="QLabel" name="label_4">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Carlos Avila</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="5">
-      <widget class="QLabel" name="label_31">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Gracie Ross</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="6">
-      <widget class="QLabel" name="label_39">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Dennis Harvey</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="6">
-      <widget class="QLabel" name="label_24">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Aron Simmons</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_44">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Dawud Villanueva</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <widget class="QLabel" name="label_30">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Ori Dekel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="7">
-      <widget class="QLabel" name="label_25">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Sydney Brennan</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="label_7">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Yehuda Polna</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="4">
-      <widget class="QLabel" name="label_27">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Phillip Dorsey</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="7">
-      <widget class="QLabel" name="label_22">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Lior Shmurak</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="label_10">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Harel Zeevi</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="0">
-      <widget class="QLabel" name="label_35">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Mikey Christensen</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="5">
-      <widget class="QLabel" name="label_40">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Kayleigh House</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="2">
-      <widget class="QLabel" name="label_17">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Khalil Hickman</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="5">
-      <widget class="QLabel" name="label_13">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Ziv Barahani</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="0">
-      <widget class="QLabel" name="label_9">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Yonatan Shayovitz</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="1">
-      <widget class="QLabel" name="label_42">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Tilly Snyder</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="3">
-      <widget class="QLabel" name="label_41">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Ava-Rose Farmer</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="5">
-      <widget class="QLabel" name="label_6">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Matanya kalfa</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="1">
-      <widget class="QLabel" name="label_18">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Bridie Mccullough</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="7">
-      <widget class="QLabel" name="label_12">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Gabriel Ratzon
-</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="7">
-      <widget class="QLabel" name="label_34">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Lior Shmurak</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="6">
-      <widget class="QLabel" name="label_15">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Ivan Morales</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QLabel" name="label_14">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Binyamin  Rosenblum
-</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="5">
-      <widget class="QLabel" name="label_26">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Raja Townsend</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="1">
-      <widget class="QLabel" name="label_21">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Alexandria Zimmerman</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="2">
-      <widget class="QLabel" name="label_37">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Olivia Sanders</string>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="4">
-      <widget class="QLabel" name="label_45">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Aleeza Hall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="3">
-      <widget class="QLabel" name="label_20">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Sienna Logan</string>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="0">
-      <widget class="QLabel" name="label_28">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Eleni Gaines</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="label_8">
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Roey Bahat Petel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="4">
-      <widget class="QLabel" name="label_19">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Yusra Mills</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="7">
-      <widget class="QLabel" name="label_16">
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:black;
-background-color:#FFAA4C;</string>
-       </property>
-       <property name="text">
-        <string>Flora Cain</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1486</width>
-    <height>1432</height>
+    <height>691</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,7 +83,7 @@ margin: 0px;</string>
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_13">
-       <item alignment="Qt::AlignHCenter">
+       <item>
         <widget class="QLineEdit" name="lineEdit_13">
          <property name="font">
           <font>
@@ -365,7 +365,7 @@ margin: 0px;</string>
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item alignment="Qt::AlignHCenter">
+       <item>
         <widget class="QLineEdit" name="lineEdit_4">
          <property name="font">
           <font>
@@ -492,11 +492,40 @@ border: 0px;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton_13">
+  <widget class="QLabel" name="label_37">
    <property name="geometry">
     <rect>
-     <x>1400</x>
-     <y>330</y>
+     <x>10</x>
+     <y>10</y>
+     <width>361</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>FreeMono</family>
+     <pointsize>22</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: beige;
+border: 1px solid beige;
+padding: 6px;
+color: white;
+border-radius: 10px;</string>
+   </property>
+   <property name="text">
+    <string>Time Left: 01:40:00</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="next_btn">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>320</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -522,28 +551,28 @@ border: 0px;</string>
 	padding: 0px;
 }
 QPushButton:hover{
-	background-color: #2D033B;
+	background-color: #7289DA;
 }</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/icons/icons/next4.png</normaloff>:/icons/icons/next4.png</iconset>
+    <iconset resource="../res.qrc">
+     <normaloff>:/icons/icons/next.png</normaloff>:/icons/icons/next.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>55</width>
-     <height>55</height>
+     <width>170</width>
+     <height>170</height>
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_15">
+  <widget class="QPushButton" name="previous_btn">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>330</y>
+     <y>310</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -575,155 +604,65 @@ QPushButton:hover{
 	padding: 0px;
 }
 QPushButton:hover{
-	background-color: #2D033B;
+	background-color: #7289DA;
 }</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/icons/icons/next4 (copy).png</normaloff>:/icons/icons/next4 (copy).png</iconset>
+    <iconset resource="../res.qrc">
+     <normaloff>:/icons/icons/previous.png</normaloff>:/icons/icons/previous.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>55</width>
-     <height>55</height>
+     <width>170</width>
+     <height>170</height>
     </size>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <widget class="QPushButton" name="flow_btn">
    <property name="geometry">
     <rect>
-     <x>1280</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>510</y>
-     <width>251</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 0px;</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="stop_btn">
-      <property name="font">
-       <font>
-        <family>DejaVu Sans</family>
-        <pointsize>14</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-        <strikeout>false</strikeout>
-        <kerning>false</kerning>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: #FED049;
-	border-style: outset;
-	border-width: 2px;
-	border-radius: 10px;
-	border-color: beige;
-	padding: 6px;
-}
-
-QPushButton:hover{
-		background-color: #7289DA;
-		color: white;
-}</string>
-      </property>
-      <property name="text">
-       <string>Stop</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="flow_btn">
-      <property name="font">
-       <font>
-        <family>DejaVu Sans</family>
-        <pointsize>14</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-        <strikeout>false</strikeout>
-        <kerning>false</kerning>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: #FED049;
-	border-style: outset;
-	border-width: 2px;
-	border-radius: 10px;
-	border-color: beige;
-	padding: 6px;
-}
-
-QPushButton:hover{
-		background-color: #7289DA;
-		color: white;
-}</string>
-      </property>
-      <property name="text">
-       <string>Flow </string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_37">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>361</width>
-     <height>51</height>
+     <x>660</x>
+     <y>540</y>
+     <width>113</width>
+     <height>39</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>FreeMono</family>
-     <pointsize>22</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-     <underline>false</underline>
+     <family>DejaVu Sans</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: beige;
-border: 1px solid beige;
-padding: 6px;
-color: white;
-border-radius: 10px;</string>
+    <string notr="true">QPushButton{
+	background-color: #FED049;
+	border-style: outset;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: beige;
+	padding: 6px;
+}
+
+QPushButton:hover{
+		background-color: #7289DA;
+		color: white;
+}</string>
    </property>
    <property name="text">
-    <string>Time Left: 01:40:00</string>
+    <string>Flow </string>
    </property>
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections/>
 </ui>

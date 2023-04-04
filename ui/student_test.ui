@@ -47,7 +47,7 @@
      <x>350</x>
      <y>230</y>
      <width>221</width>
-     <height>291</height>
+     <height>341</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -111,7 +111,10 @@ padding: 0px;</string>
      <widget class="QPushButton" name="download_btn">
       <property name="font">
        <font>
+        <family>DejaVu Sans</family>
         <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -131,6 +134,36 @@ QPushButton:hover{
       </property>
       <property name="text">
        <string>Download</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="submit">
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #FED049;
+	border-style: outset;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: beige;
+	padding: 6px;
+}
+
+QPushButton:hover{
+		background-color: #7289DA;
+		color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string>Uplaod</string>
       </property>
      </widget>
     </item>

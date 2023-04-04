@@ -174,7 +174,7 @@ QStackedWidget{
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>420</y>
+     <y>410</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -214,12 +214,12 @@ QPushButton:hover{
    </property>
    <property name="icon">
     <iconset resource="../res.qrc">
-     <normaloff>:/icons/icons/next4 (copy).png</normaloff>:/icons/icons/next4 (copy).png</iconset>
+     <normaloff>:/icons/icons/previous.png</normaloff>:/icons/icons/previous.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>55</width>
-     <height>55</height>
+     <width>170</width>
+     <height>170</height>
     </size>
    </property>
   </widget>
@@ -227,7 +227,7 @@ QPushButton:hover{
    <property name="geometry">
     <rect>
      <x>1270</x>
-     <y>410</y>
+     <y>430</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -261,12 +261,12 @@ QPushButton:hover{
    </property>
    <property name="icon">
     <iconset resource="../res.qrc">
-     <normaloff>:/icons/icons/next4.png</normaloff>:/icons/icons/next4.png</iconset>
+     <normaloff>:/icons/icons/next.png</normaloff>:/icons/icons/next.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>55</width>
-     <height>55</height>
+     <width>170</width>
+     <height>170</height>
     </size>
    </property>
   </widget>

@@ -46,7 +46,6 @@ class Ui_MainWindow(object):
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(-1, -1, 1040, 681))
         self.stackedWidget.setObjectName("stackedWidget")
-        self.stackedWidget.setStyleSheet() 
         ''' Here we define the imported pages and add them to the stack of widgets'''
         
         # login page 

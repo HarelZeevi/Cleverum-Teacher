@@ -388,6 +388,8 @@ class MyTests(Ui_Form):
         url = "http://localhost:8080/api/teacher/getTests"
         r = requests.get(url, headers=headers)
         
+        print(r.text)
+
         # occupy the list of tests 
         self.tests = json.loads(r.text)    
         

@@ -162,7 +162,6 @@ class Ui_Frame(object):
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.start_btn = QtWidgets.QPushButton(self.frame_15)
-        self.start_btn.setEnabled(False)
         font = QtGui.QFont()
         font.setPointSize(13)
         self.start_btn.setFont(font)
@@ -308,6 +307,9 @@ class TestCard(Ui_Frame):
         
         # 'download' button event that downloads the test's document
         self.download_btn.clicked.connect(lambda: self.download_test())
+
+        # 'start' button event that triggers a call that creates a test instance
+        self.start_btn.clicked.connect(lambda: self.start_test())
 
 
 
@@ -506,6 +508,33 @@ class TestCard(Ui_Frame):
         # reinitialize the frame 
         self.reinit_frame()
 
+    
+
+    def start_test(self):
+        ''' This function creates a test instance in the server and returns the 
+            test's access token'''
+        
+ 
+        # define the service name and account name to use for the jwt
+        service_name = "myapp"
+        account_name = "jwt"
+
+        # retrieve the jwt from the keyring
+        jwt_value = keyring.get_password(service_name, account_name)
+       
+        # define the http request parameters 
+        PARAMS = {
+                "testId": self.test["id"]
+        }
+     
+        # add the jwt_value to the headers
+        headers = {"authorization": f"bearer {jwt_value}"}
+            
+        url = "http://localhost:8080/api/teacher/startTest"
+        r = requests.post(url, headers=headers, json=PARAMS)
+        
+        print(r)
+        print(r.text)
 
 
 if __name__ == "__main__":
