@@ -18,12 +18,3 @@
 
 <p>Cleverum allows teachers to upload tests in Word document format, making it easy to create and customize tests for their students. This feature helps streamline the test creation process for teachers and makes it easy for students to access their tests.</p>
 
-<h2>Getting Started</h2>
-
-<p>To get started with Cleverum, simply download the desktop app and follow the on-screen instructions. Once installed, teachers can upload tests in Word document format, and students can take their tests remotely.</p>
-
-<h2>Support</h2>
-
-<p>If you have any questions or issues with Cleverum, please reach out to our support team at <a href="mailto:support@cleverum.com">support@cleverum.com</a>.</p>
-
-<p>Thank you for choosing Cleverum for your remote testing needs!</p>
