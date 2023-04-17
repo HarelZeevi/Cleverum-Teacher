@@ -731,11 +731,12 @@ class Ui_Form(object):
 
 
 
-class WaitingRoomTeacher(Ui_Form, ):
+class WaitingRoomTeacher(Ui_Form):
     def __init__(self):
 
         # init empty student names list 
-        self.names = []
+        self.names = ['Brenda Reynolds', 'Ronnie Freeman', 'Ashley Cruz', 'Richard Johnson', 'Gregory Silva', 'Jessica Brown', 'Dawn Phillips', 'Donna Moran', 'Aaron Nguyen', 'Bradley Mcdaniel', 'Jamie Larson', 'Wendy Anderson', 'Justin Salazar', 'David Weber', 'Jacob Turner', 'Lauren Douglas', 'Pamela Jones', 'Dustin Thomas', 'Kimberly Hardy', 'Scott Castro', 'Jennifer Torres', 'Jesse Adams', 'Bobby Taylor', 'Jared Roberts', 'Cynthia Peterson', 'Gary Gordon', 'Randy Greene', 'Samantha Reyes', 'Laura Gibson', 'Gloria Williams', 'Matthew Owens', 'Melissa Brown', 'Michelle Hall', 'Brian Baker', 'Linda Moore', 'Ashley Rivera', 'Robin Day', 'Cameron Ward', 'Keith Anderson', 'Jordan Martin', 'Kathryn Rodriguez', 'Cynthia Thomas', 'Mariah Jones', 'Michael Lynch', 'William Hill', 'Nicholas Brown', 'David Williams', 'Taylor Wright', 'Juan Butler', 'Jasmine Estrada', 'Lauren Salazar', 'Christopher Mason', 'Cheryl Mcdaniel', 'Carla Hart', 'Scott Castro', 'Joseph Vasquez', 'Tara Harper', 'Jason Smith', 'Ryan Long', 'Taylor Smith', 'Alexander Wilson', 'Melissa Welch', 'Emily Martinez', 'Kevin Munoz', 'Keith Phillips', 'Cheryl Rogers', 'Nancy Rose', 'Nathan Snyder', 'Joel Richardson', 'Dawn Price', 'Katherine Clark', 'Amanda Burton', 'Brent Carter', 'David Hill', 'Evelyn Terry', 'Diana Walker', 'Lisa Carter', 'Eric Torres', 'John Hill', 'Derek Alvarez', 'Dana Johnson', 'Debra Scott', 'Christine Woods', 'Shannon Cruz', 'Bryan Bailey', 'Nicholas Freeman', 'Andrea Carpenter', 'Brandon Garcia', 'Kevin Johnson', 'Dawn Reid', 'Jasmine Lane', 'Steven Carter', 'Kathleen Ramirez', 'Susan Davis', 'Jesse Wood', 'Tiffany Reyes', 'Edward Kelley', 'Amanda Kelly', 'Heather Howard']
+
 
         # amount of students per page
         self.NUM_SLOTS = 40

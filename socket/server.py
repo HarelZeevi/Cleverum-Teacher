@@ -1,7 +1,6 @@
 import socket
 import threading
 import cv2 
-import struct
 import numpy as np
 
 

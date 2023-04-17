@@ -4,6 +4,8 @@ from video_stream import VideoStream
 
 
 class MainWindow(QMainWindow):
+
+
     def __init__(self):
         super().__init__()
 
@@ -27,6 +29,8 @@ class MainWindow(QMainWindow):
         # Start the video stream
         self.start_video_stream()
 
+
+
     def start_video_stream(self):
         """
         Start the video stream by reading frames from the video capture device and displaying them in the VideoStream widget.
@@ -40,7 +44,9 @@ class MainWindow(QMainWindow):
         
         # Call this method again after a delay
         self.timer = self.startTimer(int(fps))
-    
+
+
+
     def timerEvent(self, event):
         """
         Called when the timer set in start_video_stream() triggers.

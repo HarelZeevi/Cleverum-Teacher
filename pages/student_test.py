@@ -10,6 +10,10 @@
 import resources
 from PyQt5 import QtCore, QtGui, QtWidgets
 import requests
+from PyQt5.QtWidgets import *
+from PyQt5 import QtCore, QtGui
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -36,8 +40,14 @@ class Ui_Form(object):
 "    border-color: black;\n"
 "    padding: 10px;    \n"
 "    background-color: #035397;\n"
-"    botder: 1px solid white;\n"
 "}")
+        # creating a QGraphicsDropShadowEffect object
+        shadow1 = QGraphicsDropShadowEffect()
+        shadow1.setBlurRadius(7)
+        shadow1.setOffset(4, 4)
+        shadow1.setColor(Qt.black) 
+        self.frame.setGraphicsEffect(shadow1)
+
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -48,6 +58,7 @@ class Ui_Form(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_2)
+        
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.label = QtWidgets.QLabel(self.frame_2)
         self.label.setStyleSheet("border: 0px;")
@@ -110,21 +121,31 @@ class Ui_Form(object):
         self.label_4 = QtWidgets.QLabel(Form)
         self.label_4.setGeometry(QtCore.QRect(620, 300, 391, 371))
         self.label_4.setObjectName("label_4")
-        self.label_37 = QtWidgets.QLabel(Form)
-        self.label_37.setGeometry(QtCore.QRect(20, 20, 361, 51))
+        self.time_left = QtWidgets.QLabel(Form)
+        self.time_left.setGeometry(QtCore.QRect(20, 20, 361, 51))
         font = QtGui.QFont()
         font.setFamily("FreeMono")
         font.setPointSize(22)
         font.setBold(False)
         font.setUnderline(False)
         font.setWeight(50)
-        self.label_37.setFont(font)
-        self.label_37.setStyleSheet("color: beige;\n"
+        self.time_left.setFont(font)
+        self.time_left.setStyleSheet("color: beige;\n"
 "border: 1px solid beige;\n"
 "padding: 6px;\n"
 "color: white;\n"
 "border-radius: 10px;")
-        self.label_37.setObjectName("label_37")
+        self.time_left.setObjectName("label_37")
+        
+
+       # creating a QGraphicsDropShadowEffect object
+        shadow2 = QGraphicsDropShadowEffect()
+        shadow2.setBlurRadius(7)
+        shadow2.setOffset(4, 4)
+        shadow2.setColor(Qt.black) 
+        self.time_left.setGraphicsEffect(shadow2)
+
+
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(-190, 220, 361, 471))
         self.label_3.setObjectName("label_3")
@@ -141,7 +162,7 @@ class Ui_Form(object):
         self.download_btn.setText(_translate("Form", "Download"))
         self.upload_btn.setText(_translate("Form", "Uplaod"))
         self.label_4.setText(_translate("Form", "<html><head/><body><p><img src=\":/illustrations/imgs/25.png\"/></p></body></html>"))
-        self.label_37.setText(_translate("Form", "Time Left: 01:40:00"))
+        self.time_left.setText(_translate("Form", "Time Left: 01:40:00"))
         self.label_3.setText(_translate("Form", "<html><head/><body><p><img src=\":/illustrations/imgs/29.png\"/></p></body></html>"))
 
 class StudentTest(Ui_Form):
@@ -161,7 +182,7 @@ class StudentTest(Ui_Form):
         self.upload_btn.clicked.connect(lambda: self.upload_test())
 
 
-    def get_dicument_name(self):
+    def get_document_name(self):
         ''' This function gets the document's name '''
         pass 
 

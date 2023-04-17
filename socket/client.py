@@ -94,10 +94,9 @@ class Client:
             print("Could not open camera")
             return
 
-          
         # used to record the time when we processed last frame
         prev_frame_time = 0
-  
+
         # used to record the time at which we processed current frame
         new_frame_time = 0
 
