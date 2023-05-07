@@ -10,7 +10,9 @@ import resources
 from waiting_room_teacher import WaitingRoomTeacher
 
 import sys
-sys.path.append('./../socket/')
+print(sys.path)
+sys.path.append('./socket/')
+print(sys.path)
 from tcp_teacher import TcpTeacher
 
 

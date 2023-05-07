@@ -253,7 +253,11 @@ class MyTests(Ui_Form):
 
         # define stack widget as a class property that is accessible within the class 
         self.stackedWidget = stackedWidget
-
+        print(stackedWidget)
+        
+        # resize stacked widget
+        self.stackedWidget.setGeometry(QtCore.QRect(170, 260, 1030, 444))
+        
         # init list of 4 stacks 
         self.stacks = [self.stack2, self.stack1, self.stack3, self.stack4]
 

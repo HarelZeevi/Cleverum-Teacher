@@ -14,8 +14,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import resources
 
 import sys
-sys.path.append('./../socket/')
-from tcp_teacher import TcpTeacher
 
 
 
@@ -766,7 +764,7 @@ class WaitingRoomTeacher(Ui_Form):
         # 'previous page'  button event that switches to previous page 
         self.previous_btn.clicked.connect(lambda: self.previous_page())
 
-
+        self.update_names()
 
     def next_page(self):
         ''' This function switches to the next existing page and shows it '''
@@ -844,6 +842,5 @@ if __name__ == "__main__":
     Form = QtWidgets.QWidget()
     ui = WaitingRoomTeacher()
     ui.setupUi(Form)
-    ui.update_names()
     Form.show()
     sys.exit(app.exec_())
