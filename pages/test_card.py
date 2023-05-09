@@ -10,12 +10,15 @@
 import requests
 import json
 import keyring
+import threading
 from add_test_card import AddTestCard
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 # for file encoding 
 import os
 import base64
+
+from waiting_room_teacher_sock import WaitingRoomTeacherSock
 
 
 
@@ -257,7 +260,7 @@ class Ui_Frame(object):
 class TestCard(Ui_Frame): 
     '''this classes adds the page switching funcitonality to the generated code'''
      
-    def __init__(self, tests, index):
+    def __init__(self, tests, index, stackedPages):
         
         # init tests list 
         self.tests = tests
@@ -267,8 +270,11 @@ class TestCard(Ui_Frame):
 
         # init test's index inside the tests list  
         self.index = index
-   
- 
+        
+        # init pages stack widget
+        self.stackedPages = stackedPages
+
+
 
     def setupUi(self, Form, stackedWidget, remove_enabled=False):
         ''' this function gets the stacked widget and changes 
@@ -366,7 +372,7 @@ class TestCard(Ui_Frame):
         HEADERS = {"authorization": f"bearer {jwt_value}"}#,
                 #      "Content-Type": "application/msword"}
             
-        URL = "http://localhost:8080/api/teacher/getTestDocument"
+        URL = "http://localhost:3000/api/teacher/getTestDocument"
 
         PARAMS = {'testId': self.test["id"],        # test's DB id
                 'filename': self.test["filename"]}  # test's filename
@@ -384,6 +390,7 @@ class TestCard(Ui_Frame):
 
         # save the file in the given path from base64
         self.base64_to_file(base64, file_path) 
+
 
 
     def upload_test(self):
@@ -431,7 +438,7 @@ class TestCard(Ui_Frame):
             HEADERS = {"authorization": f"bearer {jwt_value}"}#,
                     #      "Content-Type": "application/msword"}
                 
-            URL = "http://localhost:8080/api/teacher/uploadDocument"
+            URL = "http://localhost:3000/api/teacher/uploadDocument"
 
             PARAMS = {'base64file': base64file.decode("utf-8"), # base64 encoded string 
                     'filename': filename,                       # extract base name using os lib
@@ -488,7 +495,7 @@ class TestCard(Ui_Frame):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:8080/api/teacher/removeTest"
+        url = "http://localhost:3000/api/teacher/removeTest"
         r = requests.delete(url, headers=headers, json=PARAMS)
         
     
@@ -530,13 +537,29 @@ class TestCard(Ui_Frame):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:8080/api/teacher/startTest"
+        url = "http://localhost:3000/api/teacher/startTest"
         r = requests.post(url, headers=headers, json=PARAMS)
+
+        # waiting room page 
+        self.waiting_room_teacher = QtWidgets.QWidget()
         
-        print(r)
-        print(r.text)
+        # run gui
+        self.waiting_room_teacher = QtWidgets.QWidget()
+        integrated_obj = WaitingRoomTeacherSock(port=8080, token='ABC123', max_clients=40)
+        integrated_obj.setupUi(self.waiting_room_teacher, self.stackedPages)
+        integrated_obj.update_names()
+
+        self.stackedPages.addWidget(self.waiting_room_teacher)           
+        self.stackedPages.setCurrentIndex(3)
 
 
+        # run tcp server
+        t_server = threading.Thread(target=integrated_obj.run, daemon=True)
+        t_server.start()
+
+
+
+        
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

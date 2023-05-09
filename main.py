@@ -13,66 +13,51 @@ import threading
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QVBoxLayout
 
-# import pages
-from pages.sign_in import Login 
-from pages.register import Register
-#from pages.my_tests import MyTests
-
-
-# import frames
-#from pages.add_test_card import AddTestCard
-#from pages.create_test_card import CreateTestCard
-#from pages.test_card import TestCard
-
-# for jwt retreiving 
-#import keyring 
-
 # for http requests
 import requests
 import json
 
 import math
 import sys
+
 sys.path.append('./pages/')
 from register import Register
 from sign_in import Login
-from my_tests import MyTests
-from waiting_room_teacher_sock import WaitingRoomTeacherSock
-
-
-sys.path.append('./socket/')
-from tcp_teacher import TcpTeacher
 
 
 class Ui_MainWindow(object):
+   
+    def __init__(self):
+        self.PAGE_SIZES = {
+            0: (1040, 681),
+            1: (1040, 681),
+            2: (1374, 824),
+            3: (1712, 684),
+            4: (1456, 691)
+            }
+
 
     def changeWidget(self, index):
-        # Update the background of the main window to be the background color of the current frame's stylesheet
-        current_widget = self.stackedWidget.currentWidget()
-        background_color = current_widget.styleSheet().split(":")[-1].strip()
-        self.centralwidget.setStyleSheet("background-color: " + background_color + ";")
-        print("called")
-        # set the size of the stackedWidget to the size of the current widget
-        self.stackedWidget.setGeometry(QtCore.QRect(-1, -1, current_widget.width(), current_widget.height()))
-        
+
+        self.main.setFixedSize(*self.PAGE_SIZES[index])
+        self.main.resize(QtCore.QSize(*self.PAGE_SIZES[index]))
+         
 
     def setupUi(self, MainWindow):
-        
+        self.main = MainWindow 
         MainWindow.setObjectName("MainWindow")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        MainWindow.resize(1712, 824)
-        
+        MainWindow.resize(1040, 681)
+        self.nextSize = 0
         self.centralwidget.setObjectName("centralwidget")
         
         # define the stack of widgets 
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
-        self.stackedWidget.setGeometry(QtCore.QRect(-1, -1, 1712, 824))
         self.stackedWidget.setObjectName("stackedWidget")
-        
-        self.stackedWidget.currentChanged.connect(self.changeWidget)
+        print(self.stackedWidget.geometry()) 
 
-        # Connect the currentChanged signal to the updateBackground method
-        #self.stackedWidget.currentChanged.connect(self.updateBackground)
+        # Connect the currentChanged signal to the changeWidget method
+        self.stackedWidget.currentChanged.connect(self.changeWidget)
         
         ''' Here we define the imported pages and add them to the stack of widgets'''
         
@@ -84,9 +69,9 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.login)
 
         # Update the background of the main window to be the background color of the current frame's stylesheet
-        current_widget = self.stackedWidget.currentWidget()
-        background_color = current_widget.styleSheet().split(":")[-1].strip()
-        self.centralwidget.setStyleSheet("background-color: " + background_color + ";")
+        #current_widget = self.stackedWidget.currentWidget()
+        #background_color = current_widget.styleSheet().split(":")[-1].strip()
+        #self.centralwidget.setStyleSheet("background-color: " + background_color + ";")
     
         # register page 
         self.register = QtWidgets.QWidget()
@@ -94,36 +79,12 @@ class Ui_MainWindow(object):
         ui.setupUi(self.register, self.stackedWidget)
         self.register.setObjectName("register")
         self.stackedWidget.addWidget(self.register)
-        
-        
-        # myTests page 
-        self.my_tests = QtWidgets.QWidget()
-        ui = MyTests()
-        ui.setupUi(self.my_tests, self.stackedWidget)
-        self.stackedWidget.addWidget(self.my_tests)
- 
-
-     
-        # myTests page 
-        self.waiting_room_teacher = QtWidgets.QWidget()
-        
-        # run gui
-        integrated_obj = WaitingRoomTeacherSock(port=8080, token='ABC123', max_clients=40)
-        
-
-        ui.setupUi(self.my_tests, None)
-        self.stackedWidget.addWidget(self.waiting_room_teacher)
-
-
-        # run tcp server
-        t_server = threading.Thread(target=integrated_obj.run, daemon=True)
-        t_server.start()
-
-
-        MainWindow.setCentralWidget(self.centralwidget)
+              
+        MainWindow.setCentralWidget(self.stackedWidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -136,5 +97,5 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    MainWindow.showMaximized()
+    MainWindow.show()
     sys.exit(app.exec_())

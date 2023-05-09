@@ -10,12 +10,14 @@
 import requests
 import json
 import keyring
+import threading 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import resources
 
 import sys
 
 
+from test_panel_sock import TestPanelSock
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -758,13 +760,40 @@ class WaitingRoomTeacher(Ui_Form):
         # 'kick btn' event that kicks a student out of the waiting room
         self.kick_btn.clicked.connect(lambda: self.kick_student())
 
-        # 'next page'  button event that switches to next page 
+        # 'next page' button event that switches to next page 
         self.next_btn.clicked.connect(lambda: self.next_page())
 
-        # 'previous page'  button event that switches to previous page 
+        # 'previous page' button event that switches to previous page 
         self.previous_btn.clicked.connect(lambda: self.previous_page())
 
+        # 'start test' button event that starts the udp server and switches to test's panel
+        self.start_btn.clicked.connect(lambda: self.start_test())
+
+
+
         self.update_names()
+
+
+
+    def switch_page(self):
+        ''' This funciton inits the test panel ui inside the stackedWidget 
+            and fires up the udp socket server for the camera video transmission'''
+
+        self.test_panel = QtWidgets.QWidget()
+
+        # run gui
+        integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=1, clients=['10.0.0.2'])
+        integrated_obj.setupUi(self.test_panel, self.stackedWidget)
+        integrated_obj.setup_slots()
+
+        # run udp server
+        t_server = threading.Thread(target=integrated_obj.clients_info, daemon=True, args=(0, 1))
+        t_server.start()
+
+        self.stackedWidget.addWidget(self.test_panel)           
+        self.stackedWidget.setCurrentIndex(4)
+
+
 
     def next_page(self):
         ''' This function switches to the next existing page and shows it '''

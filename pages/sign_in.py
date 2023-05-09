@@ -19,6 +19,9 @@ from PyQt5.QtCore import *
 import keyring
 import json
 
+from my_tests import MyTests
+
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -360,7 +363,7 @@ class Login(Ui_Form):
                 "password": self.pswd.text(),
                 "id": self.id.text()      
         }
-        URL = "http://localhost:8080/api/signIn"
+        URL = "http://localhost:3000/api/signIn"
         r = requests.post(url = URL, json=PARAMS)
         
         
@@ -377,6 +380,13 @@ class Login(Ui_Form):
 
         # Store the JWT in the keyring
         keyring.set_password(service_name, account_name, jwt_value)
+        
+        # myTests page 
+        self.my_tests = QtWidgets.QWidget()
+        ui = MyTests()
+        ui.setupUi(self.my_tests, self.stackedWidget)
+        self.stackedWidget.addWidget(self.my_tests)
+ 
 
         # switch to next page
         self.stackedWidget.setCurrentIndex(2)
@@ -385,6 +395,7 @@ class Login(Ui_Form):
     def switch_to_register(self):
         ''' this function switches to register page from login page''' 
         self.stackedWidget.setCurrentIndex(1)
+        
 
 
 if __name__ == "__main__":

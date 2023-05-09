@@ -39,6 +39,7 @@ class UdpTeacher:
         ''' This fucntion starts getting a camera video stream from 
             the client'''
         address = (self.clients[index], 8081)
+        print("sending to ", address)
         self.udp_sock.sendto(b"GET_FRAMES", address)
 
 

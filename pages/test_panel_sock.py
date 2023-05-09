@@ -5,7 +5,7 @@ from test_panel import TestPanel
 from image_stream import ImageStream
 
 import sys
-sys.path.append('./../socket/')
+sys.path.append('./socket/')
 from udp_teacher import UdpTeacher
 
 import socket
@@ -65,7 +65,8 @@ class TestPanelSock(TestPanel, UdpTeacher):
             clients list'''
 
         print(self.clients)
-        
+      
+        '''
         # Load image as cv2 frame
         img1 = cv2.imread('/home/harel/Pictures/img1.png')
         img2 = cv2.imread('/home/harel/Pictures/img2.png')
@@ -73,7 +74,8 @@ class TestPanelSock(TestPanel, UdpTeacher):
         self.sh1.update_frame(img1)
 
         self.sh2.update_frame(img2)
-        
+        '''
+
         self.udp_sock.bind(('0.0.0.0', self.PORT))
         
         # check boundaries
@@ -81,9 +83,8 @@ class TestPanelSock(TestPanel, UdpTeacher):
             print('Indices out of bounds')
             return 
         
-        # unpack client 
-        for i in range(start_ind, end_ind):
-           
+        # unpack client
+        for i in range(start_ind, end_ind): 
             client_thread = threading.Thread(target = self.start_video_stream, daemon=True, args=(i, ))
             client_thread.start()
 
@@ -93,37 +94,11 @@ class TestPanelSock(TestPanel, UdpTeacher):
         # Receive the number of chunks
         chunks_num, addr = self.udp_sock.recvfrom(CHUNK_SIZE)
         chunks_num = int(chunks_num.decode())
-
+        print("Chunks for ", addr, ": ", chunks_num)
         frame_data = b''
-
-        print(chunks_num)
+ 
+        input("Should we Start?")
         
-        input()
-        while True:
-            try:
-                video1 = cv2.VideoCapture('man1.mp4')
-                video2 = cv2.VideoCapture('woman2.mp4')
-                
-                while True:
-                    ret, frame1 = video1.read()
-                    ret, frame2 = video2.read()
-                   
-                    print (frame1)
-                   # If there are no more frames, break out of the loop
-                    if not ret:
-                        break 
-
-
-                    self.cam1.update_frame(frame1)
-                    self.cam2.update_frame(frame2)
-
-               
-                # Release the camera and close the UDP socket
-                video1.release() 
-                video2.release()
-        
-            except Execption as e:
-                print (e)
         # Continuously receive video frame chunks over UDP and accumulate them into frames
         while True:
         
@@ -131,10 +106,13 @@ class TestPanelSock(TestPanel, UdpTeacher):
                 
                 # Receive a chunk of data over UDP
                 data, addr = self.udp_sock.recvfrom(CHUNK_SIZE)
+                
+                print("data", data)
 
                 # accumulate data
                 frame_data += data
-                
+               
+            print(frame_data)
             
             try:
                 # read image as an numpy array
@@ -142,12 +120,13 @@ class TestPanelSock(TestPanel, UdpTeacher):
                 
                 # use imdecode function
                 frame = cv2.imdecode(image, cv2.IMREAD_COLOR)
-
+                
                 print(frame)
-
-                self.cam1.update_frame(frame)
-
-                self.cam2.update_frame(frame)
+                if addr == self.clients[start_ind]:
+                    self.cam1.update_frame(frame)
+                
+                else:
+                    self.cam2.update_frame(frame)
 
                 # display image
                 #cv2.imshow('Received', frame)
@@ -172,12 +151,12 @@ if __name__ == "__main__":
     Form = QtWidgets.QWidget()
 
     # run gui
-    integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=1, clients=['127.0.0.1'])
+    integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=2, clients=['127.0.0.1', '147.235.200.89'])
     integrated_obj.setupUi(Form)
     integrated_obj.setup_slots()
 
     # run udp server
-    t_server = threading.Thread(target=integrated_obj.clients_info, daemon=True, args=(0, 1))
+    t_server = threading.Thread(target=integrated_obj.clients_info, daemon=True, args=(0, 2))
     t_server.start()
 
     Form.show()

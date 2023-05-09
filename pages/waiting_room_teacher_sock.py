@@ -5,12 +5,13 @@ import requests
 import json
 import keyring
 from PyQt5 import QtCore, QtGui, QtWidgets
+import threading 
+
 import resources
 
 from waiting_room_teacher import WaitingRoomTeacher
 
 import sys
-print(sys.path)
 sys.path.append('./socket/')
 print(sys.path)
 from tcp_teacher import TcpTeacher
@@ -25,12 +26,22 @@ class WaitingRoomTeacherSock(TcpTeacher, WaitingRoomTeacher):
     
     def __init__(self, **kwargs):
         
-        # init stcp ocket 
+        # init tcp socket 
         TcpTeacher.__init__(self, **kwargs)
         
         # init pyqt gui
         WaitingRoomTeacher.__init__(self)
 
+    
+    def start_test(self):
+        '''Overriding the page switching function by adding it the funcitonality 
+            of sending messages to all clients that the test has started'''
+        
+        # terminate tcp server and asks clients to open their udp channel
+        self.terminate()
+
+        # switch to test panel 
+        self.switch_page()
 
     
     def handle_client(self, client, address):
@@ -50,7 +61,7 @@ class WaitingRoomTeacherSock(TcpTeacher, WaitingRoomTeacher):
             self.client_auth(address, client, token)
             
 
-            # reached maximum clients - start getting info
+            # reached maximum clients - lock test meeting
             if len(self.clients) == self.max_clients:
                 print("get info")
                 return       
@@ -58,6 +69,7 @@ class WaitingRoomTeacherSock(TcpTeacher, WaitingRoomTeacher):
         else:
             print('Client disconnected')
    
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

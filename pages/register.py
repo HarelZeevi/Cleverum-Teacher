@@ -366,7 +366,7 @@ class Register(Ui_Form):
                 "gender": self.gender.currentText()[0] # only the first letteris needed: F / M               
         }
 
-        URL = "http://localhost:8080/api/register"
+        URL = "http://localhost:3000/api/register"
         r = requests.post(url = URL, json=PARAMS)
         print(r.text)
 

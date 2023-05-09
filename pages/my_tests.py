@@ -401,7 +401,7 @@ class MyTests(Ui_Form):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:8080/api/teacher/getTests"
+        url = "http://localhost:3000/api/teacher/getTests"
         r = requests.get(url, headers=headers)
         
         print(r.text)
@@ -451,7 +451,7 @@ class MyTests(Ui_Form):
                 
                 # test card stack
                 self.test = QtWidgets.QFrame()
-                ui = TestCard(self.tests, i)
+                ui = TestCard(self.tests, i, self.stackedWidget)
                 ui.setupUi(self.test, stack, remove_enabled)
                 self.test.setObjectName("test")
                 stack.addWidget(self.test)
@@ -473,7 +473,7 @@ class MyTests(Ui_Form):
                 
                 # test card stack
                 self.test = QtWidgets.QFrame()
-                ui = TestCard(self.tests, index)
+                ui = TestCard(self.tests, index, self.stackedWidget)
                 ui.setupUi(self.test, stack, remove_enabled)
                 self.test.setObjectName("test")
                 stack.addWidget(self.test)

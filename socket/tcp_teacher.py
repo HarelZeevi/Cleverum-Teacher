@@ -53,18 +53,12 @@ class TcpTeacher:
    
 
 
-    def terminate():
+    def terminate(self):
         ''' This funciton terminates the server and sends 
             an allerting message tp the clients before'''
-         
-
-        # close tcp connection
-        client.close()
-
-        for client in self.clients: 
-            client.send(f'{self.sock.getsockname()[1]}'.encode())
-            client.close()
-
+        print("terminating") 
+        
+        self.sock.shutdown(socket.SHUT_RDWR)
         self.sock.close()
 
 
