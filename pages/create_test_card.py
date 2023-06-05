@@ -236,6 +236,11 @@ class Ui_Frame(object):
 class CreateTestCard(Ui_Frame): 
     '''this classes adds the page switching funcitonality to the generated code'''
      
+    # init pages stack
+    def __init__(self, stacked_pages):
+        self.stacked_pages = stacked_pages
+    
+
     def setupUi(self, Form, stackedWidget, tests):
         ''' this function gets the stacked widget and changes 
         the shown page according to the events in the page '''
@@ -268,6 +273,8 @@ class CreateTestCard(Ui_Frame):
             current = self.stackedWidget.widget(i)
             self.stackedWidget.removeWidget(current)
 
+
+
     # this function will be called before the page is rendered with the tests 
     def get_tests(self):
         ''' this function gets the tests that were created by the user'''
@@ -283,12 +290,14 @@ class CreateTestCard(Ui_Frame):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:8080/api/teacher/getTests"
+        url = "https://cleverum.azurewebsites.net/api/teacher/getTests"
         r = requests.get(url, headers=headers)
         
         # update the list of tests globally with the the test that was just added 
         self.tests.append(json.loads(r.text)[-1])
-    
+   
+
+
     # this function will be called when the 'save' button is clicked 
     def save_test(self):
         ''' this function switches to 'test_card' frame from 'create_test_card' frame
@@ -311,31 +320,29 @@ class CreateTestCard(Ui_Frame):
 
         # Retrieve the JWT from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
-
+ 
         # add the jwt_value to the headers
         HEADERS = {"Authorization": f"Bearer {jwt_value}"}
             
-        URL = "http://localhost:8080/api/teacher/createTest"
+        URL = "https://cleverum.azurewebsites.net/api/teacher/createTest"
         r = requests.post(URL, headers=HEADERS, json=PARAMS)
        
- 
         # clear stack 
         self.clear_stack()
         
         # refresh the list of test after the new test was added
         self.get_tests()
 
-
         # test card stack
         self.test = QtWidgets.QFrame()
-        ui = TestCard(self.tests, len(self.tests) - 1)
+        ui = TestCard(self.tests, len(self.tests) - 1, self.stacked_pages)
         ui.setupUi(self.test, self.stackedWidget)
         self.test.setObjectName("test")
         self.stackedWidget.addWidget(self.test)
        
         if r.ok:
             print("Done successfully!")
-
+        print(r.text)
 
 
     # this function will be called when the undo button is clicked

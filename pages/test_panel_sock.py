@@ -27,7 +27,8 @@ class TestPanelSock(TestPanel, UdpTeacher):
         
         # init pyqt gui
         TestPanel.__init__(self)
-        
+
+
 
     def setup_slots(self):
         ''' this function setups the slots of the camera
@@ -58,6 +59,16 @@ class TestPanelSock(TestPanel, UdpTeacher):
 
 
 
+    def refresh_screenshot(self):
+        ''' This funciton sends a screenshot-refresh request to both 
+            of the students that appear on the screen'''
+        # sending get screenshot to each client
+        print("\n\n\n\n\nrefreshing\n\n\n\n\n\n")
+        for i in range(2):
+            addr = (self.clients[i], 8081)
+            self.udp_sock.sendto(b"GET_SCREENSHOT", addr)
+
+
 
     def clients_info(self, start_ind, end_ind):
         ''' This funciton gets the client screenshots & 
@@ -76,8 +87,6 @@ class TestPanelSock(TestPanel, UdpTeacher):
         self.sh2.update_frame(img2)
         '''
 
-        self.udp_sock.bind(('0.0.0.0', self.PORT))
-        
         # check boundaries
         if start_ind < 0 or end_ind > len(self.clients):
             print('Indices out of bounds')
@@ -89,16 +98,14 @@ class TestPanelSock(TestPanel, UdpTeacher):
             client_thread.start()
 
         # Define the chunk size (in bytes)
-        CHUNK_SIZE = 65506
+        CHUNK_SIZE = 65509
 
         # Receive the number of chunks
         chunks_num, addr = self.udp_sock.recvfrom(CHUNK_SIZE)
         chunks_num = int(chunks_num.decode())
-        print("Chunks for ", addr, ": ", chunks_num)
         frame_data = b''
- 
-        input("Should we Start?")
-        
+  
+        last_sender = addr
         # Continuously receive video frame chunks over UDP and accumulate them into frames
         while True:
         
@@ -107,26 +114,41 @@ class TestPanelSock(TestPanel, UdpTeacher):
                 # Receive a chunk of data over UDP
                 data, addr = self.udp_sock.recvfrom(CHUNK_SIZE)
                 
-                print("data", data)
-
                 # accumulate data
                 frame_data += data
-               
-            print(frame_data)
-            
+                
             try:
+
+                header = frame_data[0:6].decode()
+                isScreenshot = False
+                
+                print(header)
+                if "scr" in header:
+                    isScreenshot = True
+                    print("received screenshot")
+
+                # rest of the frame 
+                frame_data = frame_data[6:]
+
                 # read image as an numpy array
                 image = np.asarray(bytearray(frame_data), dtype="uint8")
                 
                 # use imdecode function
                 frame = cv2.imdecode(image, cv2.IMREAD_COLOR)
                 
-                print(frame)
-                if addr == self.clients[start_ind]:
+                if addr[0] == self.clients[start_ind]:
                     self.cam1.update_frame(frame)
-                
-                else:
+
+                    if isScreenshot:
+                        self.sh1.update_frame(frame)
+
+
+                elif addr[0] == self.clients[start_ind + 1]:
                     self.cam2.update_frame(frame)
+
+                    if isScreenshot:
+                        self.sh2.update_frame(frame)
+                
 
                 # display image
                 #cv2.imshow('Received', frame)
@@ -135,7 +157,8 @@ class TestPanelSock(TestPanel, UdpTeacher):
                 #    break
             
             except Exception as e:
-                print(e)
+                #continue
+                a = 1
     
             # zero frame data
             frame_data = b''
@@ -151,7 +174,7 @@ if __name__ == "__main__":
     Form = QtWidgets.QWidget()
 
     # run gui
-    integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=2, clients=['127.0.0.1', '147.235.200.89'])
+    integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=2, clients=['127.0.0.1', '192.168.5.228'])
     integrated_obj.setupUi(Form)
     integrated_obj.setup_slots()
 

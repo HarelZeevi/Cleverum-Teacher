@@ -32,8 +32,7 @@ class Ui_MainWindow(object):
             0: (1040, 681),
             1: (1040, 681),
             2: (1374, 824),
-            3: (1712, 684),
-            4: (1456, 691)
+            3: (1456, 691)
             }
 
 
@@ -46,6 +45,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         self.main = MainWindow 
         MainWindow.setObjectName("MainWindow")
+        MainWindow.setWindowTitle("Cleverum")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         MainWindow.resize(1040, 681)
         self.nextSize = 0
@@ -88,7 +88,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
 
 if __name__ == "__main__":

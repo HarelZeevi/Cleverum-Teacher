@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color:#001E6C;</string>
   </property>
@@ -374,9 +377,9 @@ QPushButton:hover{
   <widget class="QPushButton" name="flow_btn">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>560</y>
-     <width>113</width>
+     <x>410</x>
+     <y>550</y>
+     <width>161</width>
      <height>39</height>
     </rect>
    </property>
@@ -395,9 +398,9 @@ QPushButton:hover{
     <string notr="true">QPushButton{
 	background-color: #FED049;
 	border-style: outset;
-	border-width: 2px;
+	border-width: 1px;
 	border-radius: 10px;
-	border-color: beige;
+	border-color: black;
 	padding: 6px;
 }
 
@@ -407,7 +410,17 @@ QPushButton:hover{
 }</string>
    </property>
    <property name="text">
-    <string>Flow </string>
+    <string> Auto-Flow </string>
+   </property>
+   <property name="icon">
+    <iconset resource="../res.qrc">
+     <normaloff>:/icons/icons/workflow.png</normaloff>:/icons/icons/workflow.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>25</width>
+     <height>25</height>
+    </size>
    </property>
   </widget>
   <widget class="QSlider" name="velocity_slider">
@@ -442,6 +455,102 @@ QPushButton:hover{
    </property>
    <property name="text">
     <string>Velocity</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="screenshot_btn">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>550</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #FED049;
+	border-style: outset;
+	border-radius:10px;
+	border: 1px solid black;
+	padding: 6px;
+}
+
+QPushButton:hover{
+		background-color: #7289DA;
+		color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string> Screenshot </string>
+   </property>
+   <property name="icon">
+    <iconset resource="../res.qrc">
+     <normaloff>:/icons/icons/screenshot.png</normaloff>:/icons/icons/screenshot.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>52</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="screenshot_btn_2">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>550</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #FED049;
+	border-style: outset;
+	border-radius:10px;
+	border: 1px solid black;
+	padding: 6px;
+}
+
+QPushButton:hover{
+		background-color: #7289DA;
+		color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string> Distribute Files</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../res.qrc">
+     <normaloff>:/icons/icons/share.png</normaloff>:/icons/icons/share.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>35</height>
+    </size>
    </property>
   </widget>
  </widget>

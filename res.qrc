@@ -63,17 +63,21 @@
     <file>imgs/16.png</file>
   </qresource>
   <qresource prefix="icons">
-    <file>icons/search.png</file>
-    <file>icons/docs.png</file>
-    <file>icons/previous.png</file>
-    <file>icons/docs.png</file>
     <file>icons/apps.png</file>
     <file>icons/docs.png</file>
     <file>icons/download.png</file>
+    <file>icons/file-sharing.png</file>
+    <file>icons/first.png</file>
+    <file>icons/image.png</file>
+    <file>icons/landscape.png</file>
+    <file>icons/last.png</file>
     <file>icons/next.png</file>
-    <file>icons/next.png</file>
+    <file>icons/planning.png</file>
     <file>icons/previous.png</file>
-    <file>icons/previous.png</file>
+    <file>icons/screenshot.png</file>
     <file>icons/search.png</file>
+    <file>icons/sh1.png</file>
+    <file>icons/share.png</file>
+    <file>icons/workflow.png</file>
   </qresource>
 </RCC>

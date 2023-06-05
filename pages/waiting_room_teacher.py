@@ -782,7 +782,7 @@ class WaitingRoomTeacher(Ui_Form):
         self.test_panel = QtWidgets.QWidget()
 
         # run gui
-        integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=1, clients=['10.0.0.2'])
+        integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=1, clients=['127.0.0.1'])
         integrated_obj.setupUi(self.test_panel, self.stackedWidget)
         integrated_obj.setup_slots()
 

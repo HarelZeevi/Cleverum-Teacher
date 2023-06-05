@@ -15,9 +15,54 @@ class UdpTeacher:
         self.udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
+        # auth state flag 
+        self.auth_flag = True 
 
 
-    def terminate():
+
+    def auth_students(self):
+        '''This funciton authenticate students and adds them to the clients list'''
+        
+        print('Authenticating...')
+
+        self.udp_sock.bind(('0.0.0.0', self.PORT))
+
+        print(self.udp_sock.getsockname()[1])
+
+
+        # while authentcating 
+        while self.auth_flag:
+
+            # message will contain the user's full name and the token for auth 
+            msg, address = self.udp_sock.recvfrom(1024)
+            
+            print("Received ", msg, " from ", address)
+
+            # unpack name and token
+            name, token = tuple(msg.decode().split(', '))
+            
+            print(token)
+            # init response message
+            response = b'AUTH_FAILED'
+            
+            # auth completed 
+            if token == self.token:     
+                response = b'AUTH_SUCCESS'
+     
+                # add client's ip to clients list 
+                self.clients.append(str(address[1]))           
+                
+                self.auth_flag = False
+
+            print("Sending reponse: ", response)
+            self.udp_sock.sendto(response, address)
+            
+
+        # stopped auth, now get camera stream
+        self.clients_info(0, 1)
+
+
+    def terminate(self):
         ''' This funciton terminates the server and sends 
             an allerting message tp the clients before'''
         
@@ -46,9 +91,12 @@ class UdpTeacher:
 
     def stop_video_stream(self, index):
         ''' This function asks the client to stop the video stream  '''
-        pass        
-
-
+        
+        address = (self.clients[index], 8081)
+        print("sending to ", address)
+        self.udp_sock.sendto(b"STOP_VIDEO_STREAM", address)
+   
+    
 
     def clients_info(self, start_ind, end_ind):
         ''' This funciton gets the client screenshots & 
@@ -56,11 +104,6 @@ class UdpTeacher:
             clients list'''
 
         print(self.clients)
-
-        self.udp_sock.bind(('0.0.0.0', self.PORT))
-
-        print(self.udp_sock.getsockname()[1])
-
         # check boundaries
         if start_ind < 0 or end_ind > len(self.clients):
             print('Indices out of bounds')
@@ -80,8 +123,6 @@ class UdpTeacher:
         chunks_num = int(chunks_num.decode())
 
         frame_data = b''
-
-        print(chunks_num)
 
         # Continuously receive video frame chunks over UDP and accumulate them into frames
         while True:
@@ -111,13 +152,13 @@ class UdpTeacher:
                     break
             
             except Exception as e:
-                print(e)
-    
+                continue
+
             # zero frame data
             frame_data = b''
                
 
 
 if __name__ == '__main__':
-    server = UdpTeacher(port=8080, token='ABC123', max_clients=1, clients=['127.0.0.1'])
-    server.clients_info(0, 1)
+    server = UdpTeacher(port=8080, token='ABC123', max_clients=2, clients=['127.0.0.1', '192.168.5.228'])
+    server.clients_info(0, 2)

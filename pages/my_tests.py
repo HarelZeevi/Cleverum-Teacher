@@ -379,7 +379,7 @@ class MyTests(Ui_Form):
        
         # create test card stack 
         self.create_test = QtWidgets.QFrame()
-        ui = CreateTestCard()
+        ui = CreateTestCard(self.stackedWidget)
         ui.setupUi(self.create_test, stack, self.tests)
         self.add_test.setObjectName("add_test")
         stack.addWidget(self.create_test)
@@ -397,17 +397,20 @@ class MyTests(Ui_Form):
 
         # retrieve the jwt from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
-
+        
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:3000/api/teacher/getTests"
+        url = "http://cleverum.azurewebsites.net/api/teacher/getTests"
         r = requests.get(url, headers=headers)
         
         print(r.text)
 
-        # occupy the list of tests 
-        self.tests = json.loads(r.text)    
+        # occupy the list of tests
+        if r.text == "Not found":
+            self.tests = []
+        else:    
+            self.tests = json.loads(r.text)    
         
     
 

@@ -363,7 +363,7 @@ class Login(Ui_Form):
                 "password": self.pswd.text(),
                 "id": self.id.text()      
         }
-        URL = "http://localhost:3000/api/signIn"
+        URL = "https://cleverum.azurewebsites.net/api/signIn"
         r = requests.post(url = URL, json=PARAMS)
         
         

@@ -15,6 +15,9 @@ from PyQt5 import QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
+import json
+import keyring
+from my_tests import MyTests
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -326,6 +329,11 @@ class Ui_Form(object):
 class Register(Ui_Form): 
     '''this classes adds the page switching funcitonality to the generated code'''
     
+    def __init__(self):
+        self.types = {"Student": 1,
+                      "Teacher": 2}
+
+
     def setupUi(self, Form, stackedWidget):
         ''' this function gets the stacked widget and changes 
         the shown page according to the events in the page '''
@@ -360,15 +368,40 @@ class Register(Ui_Form):
                 "password": self.pswd.text(),
                 "confirmPassword": self.confirmPswd.text(),
                 "id": self.id.text(),
-                "userType": self.utype.currentText()[0], # only the first letteris needed: S / T 
+                "userType": self.types[self.utype.currentText()], # only the first letteris needed: S / T 
                 "firstName": self.fname.text(),
                 "lastName": self.lname.text(),
                 "gender": self.gender.currentText()[0] # only the first letteris needed: F / M               
         }
 
-        URL = "http://localhost:3000/api/register"
+        URL = "http://cleverum.azurewebsites.net/api/register"
         r = requests.post(url = URL, json=PARAMS)
         print(r.text)
+    
+        ''' store in keyring '''
+        # Define the service name and account name to use for the JWT
+        service_name = "myapp"
+        account_name = "jwt"
+
+        # Define the JWT value to store in the keyring
+        response_json = json.loads(r.text)
+        
+        try: 
+            jwt_value = response_json["accessToken"]
+            print(jwt_value)
+        
+        except Exception as e:
+            print(e)
+
+        # Store the JWT in the keyring
+        keyring.set_password(service_name, account_name, jwt_value)
+ 
+
+        # myTests page 
+        self.my_tests = QtWidgets.QWidget()
+        ui = MyTests()
+        ui.setupUi(self.my_tests, self.stackedWidget)
+        self.stackedWidget.addWidget(self.my_tests)
 
         # switch to next page
         self.stackedWidget.setCurrentIndex(2)

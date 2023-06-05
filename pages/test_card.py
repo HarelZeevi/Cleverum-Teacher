@@ -18,8 +18,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import base64
 
-from waiting_room_teacher_sock import WaitingRoomTeacherSock
-
+from test_panel_sock import TestPanelSock
 
 
 class Ui_Frame(object):
@@ -372,7 +371,7 @@ class TestCard(Ui_Frame):
         HEADERS = {"authorization": f"bearer {jwt_value}"}#,
                 #      "Content-Type": "application/msword"}
             
-        URL = "http://localhost:3000/api/teacher/getTestDocument"
+        URL = "https://cleverum.azurewebsites.net/api/teacher/getTestDocument"
 
         PARAMS = {'testId': self.test["id"],        # test's DB id
                 'filename': self.test["filename"]}  # test's filename
@@ -438,7 +437,7 @@ class TestCard(Ui_Frame):
             HEADERS = {"authorization": f"bearer {jwt_value}"}#,
                     #      "Content-Type": "application/msword"}
                 
-            URL = "http://localhost:3000/api/teacher/uploadDocument"
+            URL = "https://cleverum.azurewebsites.net/api/teacher/uploadDocument"
 
             PARAMS = {'base64file': base64file.decode("utf-8"), # base64 encoded string 
                     'filename': filename,                       # extract base name using os lib
@@ -495,7 +494,7 @@ class TestCard(Ui_Frame):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:3000/api/teacher/removeTest"
+        url = "https://cleverum.azurewebsites.net/api/teacher/removeTest"
         r = requests.delete(url, headers=headers, json=PARAMS)
         
     
@@ -537,25 +536,25 @@ class TestCard(Ui_Frame):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://localhost:3000/api/teacher/startTest"
+        url = "https://cleverum.azurewebsites.net/api/teacher/startTest"
         r = requests.post(url, headers=headers, json=PARAMS)
 
-        # waiting room page 
-        self.waiting_room_teacher = QtWidgets.QWidget()
-        
+        # run gui 
+        self.test_panel = QtWidgets.QWidget()
+
         # run gui
-        self.waiting_room_teacher = QtWidgets.QWidget()
-        integrated_obj = WaitingRoomTeacherSock(port=8080, token='ABC123', max_clients=40)
-        integrated_obj.setupUi(self.waiting_room_teacher, self.stackedPages)
-        integrated_obj.update_names()
+        integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=1, clients=['127.0.0.1'])
+        integrated_obj.setupUi(self.test_panel, self.stackedPages)
+        integrated_obj.setup_slots()
 
-        self.stackedPages.addWidget(self.waiting_room_teacher)           
-        self.stackedPages.setCurrentIndex(3)
-
-
-        # run tcp server
-        t_server = threading.Thread(target=integrated_obj.run, daemon=True)
+        # run udp server
+        t_server = threading.Thread(target=integrated_obj.auth_students, daemon=True)
         t_server.start()
+
+        print("auth_flag:", integrated_obj.auth_flag)
+
+        self.stackedPages.addWidget(self.test_panel)           
+        self.stackedPages.setCurrentIndex(3)
 
 
 
