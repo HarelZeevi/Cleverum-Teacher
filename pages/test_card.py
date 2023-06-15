@@ -362,7 +362,7 @@ class TestCard(Ui_Frame):
 
         # define the service name and account name to use for the jwt
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # retrieve the jwt from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
@@ -400,7 +400,7 @@ class TestCard(Ui_Frame):
         dialog = QtWidgets.QFileDialog() 
 
         # set file filter
-        dialog.setNameFilter("Images (*.doc *.docx)")
+        dialog.setNameFilter("Text Documents (*.doc *.docx)")
         
         # which files are allowed
         dialog.setFileMode(QtWidgets.QFileDialog.FileMode.ExistingFiles)
@@ -428,7 +428,7 @@ class TestCard(Ui_Frame):
 
             # define the service name and account name to use for the jwt
             service_name = "myapp"
-            account_name = "jwt"
+            account_name = "jwt_teacher"
 
             # retrieve the jwt from the keyring
             jwt_value = keyring.get_password(service_name, account_name)
@@ -481,7 +481,7 @@ class TestCard(Ui_Frame):
 
         # define the service name and account name to use for the jwt
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # retrieve the jwt from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
@@ -523,7 +523,7 @@ class TestCard(Ui_Frame):
  
         # define the service name and account name to use for the jwt
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # retrieve the jwt from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
@@ -542,8 +542,14 @@ class TestCard(Ui_Frame):
         # run gui 
         self.test_panel = QtWidgets.QWidget()
 
+        token = json.loads(r.text)["accessToken"]
+
+        print("test obj: \n", self.test)
+        print(r.text)
+        time_left = self.test["timeLimit"]
+
         # run gui
-        integrated_obj = TestPanelSock(port=8080, token='ABC123', max_clients=1, clients=['127.0.0.1'])
+        integrated_obj = TestPanelSock(PARAMS["testId"], token, time_left, port=8080, token=token, max_clients=2, clients=[])
         integrated_obj.setupUi(self.test_panel, self.stackedPages)
         integrated_obj.setup_slots()
 
@@ -566,4 +572,4 @@ if __name__ == "__main__":
     ui = Ui_Frame()
     ui.setupUi(Frame)
     Frame.show()
-    sys.exit(app.exec_())
+    tys.exit(app.exec_())

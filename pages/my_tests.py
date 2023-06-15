@@ -393,7 +393,7 @@ class MyTests(Ui_Form):
         
         # define the service name and account name to use for the jwt
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # retrieve the jwt from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
@@ -401,7 +401,7 @@ class MyTests(Ui_Form):
         # add the jwt_value to the headers
         headers = {"authorization": f"bearer {jwt_value}"}
             
-        url = "http://cleverum.azurewebsites.net/api/teacher/getTests"
+        url = "https://cleverum.azurewebsites.net/api/teacher/getTests"
         r = requests.get(url, headers=headers)
         
         print(r.text)

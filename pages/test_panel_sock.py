@@ -20,13 +20,13 @@ class TestPanelSock(TestPanel, UdpTeacher):
         the Gui of the test in Pyqt, and from UdpTeacher that is reponsible for 
         the backend of the test panel.'''
    
-    def __init__(self, **kwargs):
+    def __init__(self, test_id, access_token, time, **kwargs):
         
         # init udp ocket 
         UdpTeacher.__init__(self, **kwargs)
         
         # init pyqt gui
-        TestPanel.__init__(self)
+        TestPanel.__init__(self, test_id, access_token, time)
 
 
 

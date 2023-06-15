@@ -374,14 +374,14 @@ class Register(Ui_Form):
                 "gender": self.gender.currentText()[0] # only the first letteris needed: F / M               
         }
 
-        URL = "http://cleverum.azurewebsites.net/api/register"
+        URL = "https://cleverum.azurewebsites.net/api/register"
         r = requests.post(url = URL, json=PARAMS)
         print(r.text)
     
         ''' store in keyring '''
         # Define the service name and account name to use for the JWT
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # Define the JWT value to store in the keyring
         response_json = json.loads(r.text)

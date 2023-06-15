@@ -35,13 +35,13 @@ class UdpTeacher:
 
             # message will contain the user's full name and the token for auth 
             msg, address = self.udp_sock.recvfrom(1024)
-            
-            print("Received ", msg, " from ", address)
+             
+            try:
+                # unpack name and token
+                name, token = tuple(msg.decode().strip().split(', '))
+            except:
+                continue
 
-            # unpack name and token
-            name, token = tuple(msg.decode().split(', '))
-            
-            print(token)
             # init response message
             response = b'AUTH_FAILED'
             
@@ -51,15 +51,15 @@ class UdpTeacher:
      
                 # add client's ip to clients list 
                 self.clients.append(str(address[1]))           
-                
-                self.auth_flag = False
+               
+                if self.max_clients == len(self.clients):
+                    self.auth_flag = False
 
-            print("Sending reponse: ", response)
             self.udp_sock.sendto(response, address)
             
 
         # stopped auth, now get camera stream
-        self.clients_info(0, 1)
+        self.clients_info(0, 2)
 
 
     def terminate(self):
@@ -103,7 +103,6 @@ class UdpTeacher:
             video streams for a given start & end indices in the 
             clients list'''
 
-        print(self.clients)
         # check boundaries
         if start_ind < 0 or end_ind > len(self.clients):
             print('Indices out of bounds')
@@ -142,8 +141,6 @@ class UdpTeacher:
                 
                 # use imdecode function
                 frame = cv2.imdecode(image, cv2.IMREAD_COLOR)
-
-                print(frame)
 
                 # display image
                 cv2.imshow('Received', frame)

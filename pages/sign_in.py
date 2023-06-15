@@ -369,7 +369,7 @@ class Login(Ui_Form):
         
         # Define the service name and account name to use for the JWT
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         print(r.text)
 

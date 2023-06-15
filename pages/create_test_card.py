@@ -282,7 +282,7 @@ class CreateTestCard(Ui_Frame):
         
         # define the service name and account name to use for the jwt
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # retrieve the jwt from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
@@ -316,7 +316,7 @@ class CreateTestCard(Ui_Frame):
         print(PARAMS) 
         # Define the service name and account name to use for the JWT
         service_name = "myapp"
-        account_name = "jwt"
+        account_name = "jwt_teacher"
 
         # Retrieve the JWT from the keyring
         jwt_value = keyring.get_password(service_name, account_name)
